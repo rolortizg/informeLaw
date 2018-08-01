@@ -1,0 +1,17 @@
+body {
+  margin:0 auto;
+  padding:0 auto;
+}
+.navbar {
+  background-color:none;
+  border-bottom:1px solid black;
+  width:100vw;
+  box-shadow: 1px 1px 10px 1px black;
+}
+.navbar img {
+  border-radius:5%;
+}
+
+
+  
+

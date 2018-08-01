@@ -1,0 +1,20 @@
+<h1>{{form | json}}</h1>
+<section>
+
+  <form >
+    <input required name="username" [(ngModel)]="username" placeholder="Tu nombre papud!" type="text">
+    <br>
+    <input required name="email" [(ngModel)]="email" placeholder="Tu correo" type="email">
+    <br>
+    <input #myPassword="ngModel" required name="password" [(ngModel)]="password" placeholder="Tu password" type="password">
+    <!-- <div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)"> -->
+      <!-- <p style="background:red;color:white" [hidden]="!myPassword.errors.required">
+        Password is required
+      </p> -->
+    <!-- </div> -->
+    <br>
+    <!-- <input required name="password2" [(ngModel)]="password2" placeholder="repite" type="password"> -->
+    <button (click)="signup()"></button>
+  </form>
+
+</section>
