@@ -12,7 +12,9 @@ export class SignupFormComponent implements OnInit {
   username: string = ''
   email: string = ''
   password: string = ''
+  role:any;
   auth: any = {
+    role:'',
     username: '',
     email: '',
     password: ''
@@ -28,6 +30,7 @@ export class SignupFormComponent implements OnInit {
     this.auth.username = this.username;
     this.auth.email = this.email;
     this.auth.password = this.password;
+    this.auth.role = this.role;
     this.authService.signup(this.auth)
     .subscribe( user => this.user = user)
     console.log(this.user)
