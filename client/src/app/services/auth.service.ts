@@ -7,7 +7,8 @@ import {Observable} from 'rxjs'
   providedIn: 'root'
 })
 export class AuthService {
-  url = "http://localhost:3000/"
+  url = "http://localhost:3000/";
+  id : any;
   constructor(
     private http: Http
   ) { }
@@ -18,17 +19,24 @@ export class AuthService {
   }
 
   login(auth): Observable<string>{
-    return this.http.post(this.url + 'login', auth, {withCredentials:true})
+    return this.http.post(this.url + 'login', auth)
     .pipe(map(res=>res.json()))
   }
 
-  getPrivatePhones(){
-    return this.http.get(this.url + 'private', {withCredentials:true})
+  getProfile(){
+    return this.http.get(this.url + 'profile')
     .pipe(map(res=>res.json()))
   }
+
+//   getOneUser(id){
+//     return this.http.get(this.url + 'profile' + id)
+//         .pipe(map((res: Response)=>res.json()));                                
+// }
+
 
   logout(){
     localStorage.removeItem('user')
+    console.log('removed')
   }
 
 }

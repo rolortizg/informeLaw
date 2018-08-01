@@ -3,13 +3,16 @@ import { AppComponent } from './app.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import {LoginComponent} from './login/login.component'
 import { HomeComponent } from './home/home.component';
-// import {PrivateComponent} from './private/private.component'
+import {ProfileComponent} from './profile/profile.component'
 
 export const routes: Routes = [
     // { path: 'private', component: PrivateComponent},
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',  component: HomeComponent},
+    { path:'profile', component: ProfileComponent },
+    { path: 'logout', component:LoginComponent},
+    
     // { 
     //   path:'products', 
     //   component: ProductPageComponent,

@@ -15,8 +15,12 @@ router.post('/signup', (req,res,next) => {
 });
 
 router.post('/login', passport.authenticate('local'), (req,res,next) => {
-    res.json(req.user);
+    return res.json(req.user);
 })
 
+router.get('/logout', (req,res,next)=>{
+    req.logout();
+    res.send('cerrado ??? ');
+});
 
 module.exports = router;

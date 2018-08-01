@@ -9,9 +9,15 @@ import {Router} from '@angular/router'
 })
 export class LoginComponent implements OnInit {
 
-  isLogged = false
-  auth = {}
-  user = null
+  
+  // username: string = ''
+  email: string = ''
+  password: string = ''
+  auth: any = {
+    email: '',
+    password: ''
+  } //object used for all authentication
+  user = ''
 
   constructor(
     private authService: AuthService,
@@ -22,23 +28,37 @@ export class LoginComponent implements OnInit {
     this.authService.signup(this.auth)
     .subscribe(user=>{
       this.user = user
-      localStorage.setItem('user', JSON.stringify(user))
+      // localStorage.setItem('user', JSON.stringify(user))
     })
   }
 
   login(){
+    
+    this.auth.email = this.email;
+    this.auth.password = this.password;
     this.authService.login(this.auth)
-    .subscribe(user=>{
+    .subscribe( user => {
       this.user = user
-      localStorage.setItem('user', JSON.stringify(user))
+      console.log(this.user)
+      localStorage.setItem('user', JSON.stringify(this.user))
     })
+    
+
+    // this.email = '';
+    // this.password = '';
   }
 
-  ngOnInit() {
-  //   if(localStorage.getItem('user')){
-  //     this.router.navigate(['products'])
-  //   }
-   }
+  logout(){
+    localStorage.removeItem('user')
+    
+  }
+  
 
+  ngOnInit() {
+    if(localStorage.getItem('user')){
+      this.router.navigate(['profile'])
+    }
+   
+   }
 }
 

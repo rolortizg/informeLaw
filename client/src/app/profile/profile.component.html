@@ -1,5 +1,4 @@
-<p>
-  profile works!
-</p>
+<h1 *ngIf="user.role === 'USER'">hello {{user.username}} you are a normal user</h1>
+<h1 *ngIf="user.role === 'LAWYER'">hello {{user.username}} you are a lawyer</h1>
 
 <!-- usa ngIF para separar -->

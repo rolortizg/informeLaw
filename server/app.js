@@ -14,6 +14,7 @@ const cors         = require('cors');
 
 
 
+
 mongoose.Promise = Promise;
 mongoose
   .connect('mongodb://localhost/server', {useMongoClient: true})
@@ -63,7 +64,7 @@ app.use(require('node-sass-middleware')({
 
 const passport = require('./helpers/passport')
 app.use(passport.initialize())
-// app.use(passport.session())
+app.use(passport.session())
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -80,7 +81,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 const index = require('./routes/index');
 const auth = require('./routes/auth');
+const profile = require('./routes/profile/profile');
 
+app.use('/', profile)
 app.use('/', auth)
 app.use('/', index);
 
