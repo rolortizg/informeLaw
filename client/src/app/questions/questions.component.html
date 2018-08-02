@@ -1,13 +1,19 @@
+
+<h1>{{form | json}}</h1>
 <section *ngIf="user.role === 'USER'">
-      <form>
+    <form>
         <div class="form-group">
-          <label for="exampleFormControlInput1">Tu correo electrónico:</label>
-          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+          <label for="exampleFormControlInput1">Tu usuario:</label>
+          <input type="text" class="form-control" value="{{user.username}}"  id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
         </div>
         <div class="form-group">
+            <label for="exampleFormControlInput1">Título de la pregunta:</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="question.title" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+          </div>
+        <div class="form-group">
           <label for="exampleFormControlSelect1">¿Qué tipo de derecho requires?</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>No sé</option>
+          <select class="form-control" name="content" [(ngModel)]="question.category" id="exampleFormControlSelect1">
+            <option value="nose">No sé</option>
             <option>Familiar</option>
             <option>Administrativo</option>
             <option>Mercantil</option>
@@ -25,10 +31,11 @@
         </div>
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Tu pregunta detallada:</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea [(ngModel)]="question.content" class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-       
-      </form>
+        <button (click)="makeQuestion()">in for me</button>
+    </form>
+    
 </section>
 <section *ngIf="user.role === 'LAWYER'">
   <h1>Hola pringao</h1>

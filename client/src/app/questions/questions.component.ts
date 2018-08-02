@@ -12,15 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class QuestionsComponent implements OnInit {
   user: any;
+  question = {};
   isLogged = false
   username: string = ''
   title: string = ''
   content:string = ''
-  q: any = {
-    username: '',
-    title: '',
-    content: ''
-  } //object used for all authentication
+  category:string = ''
+
 
   constructor(
     private qService: QuestionsService,
@@ -30,11 +28,14 @@ export class QuestionsComponent implements OnInit {
   ) { }
 
   makeQuestion(){
-    this.qService.ask(this.q)
-    .subscribe(question=>{
-      this.q = question
-      // localStorage.setItem('user', JSON.stringify(user))
-    })
+   
+    // this.q.category = this.category;
+    return this.qService.ask(this.question)
+    .subscribe( question => this.question = question)
+    console.log(this.question)
+    // this.username = '';
+    // this.title = '';
+    // this.content = '';
   }
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'))

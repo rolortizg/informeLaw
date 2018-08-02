@@ -13,9 +13,9 @@ export class QuestionsService {
     private http: Http
   ) { }
 
-  ask(q): Observable<string>{
-    return this.http.post(this.url + 'question', q)
-    .pipe(map(res=>res.json()))
+  ask(q): Observable<any>{
+    return this.http.post(this.url + 'question',q)
+    .pipe(map((res:Response)=>res.json()))
   }
 
 }

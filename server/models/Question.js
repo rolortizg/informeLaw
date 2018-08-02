@@ -3,7 +3,7 @@ const Schema = require('mongoose').Schema;
 
 
 const questionSchema = new require('mongoose').Schema({
-    username: String,
+    // username: String,
     title: String,
     content: String,
     category:String,

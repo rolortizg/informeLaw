@@ -1,5 +1,5 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-
+import {Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { QuestionsService } from './services/questions.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -19,10 +19,20 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
     }
   `]
 })
-export class NgbdModalOptions {
+export class NgbdModalOptions implements OnInit{
+  user: any;
+  isLogged = false
+  username: string = ''
+  title: string = ''
+  content:string = ''
+  q: any = {
+    username: '',
+    title: '',
+    content: ''
+  }
   closeResult: string;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,private qService: QuestionsService) {}
 
 
 
@@ -30,4 +40,17 @@ export class NgbdModalOptions {
     this.modalService.open(content, { centered: true });
   }
 
+  makeQuestion(){
+    this.qService.ask(this.q)
+    .subscribe(question=>{
+      this.q = question
+      // localStorage.setItem('user', JSON.stringify(user))
+    })
+  }
+
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'))
+     
+ 
+   }
 }
