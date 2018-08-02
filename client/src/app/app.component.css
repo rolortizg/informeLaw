@@ -6,11 +6,23 @@ body {
   background-color:none;
   border-bottom:1px solid black;
   width:100vw;
+  height:57px;
   box-shadow: 1px 1px 10px 1px black;
 }
 .navbar img {
   border-radius:5%;
 }
+.lft {
+  margin-left:5%;
+}
+
+/* .mrleft {
+  padding-left:20%;
+} */
+
+/* .mrsleft {
+  padding-left:20%;
+} */
 
 
   

@@ -18,6 +18,22 @@
 
 
 
-<h1 *ngIf="user.role === 'LAWYER'">hello {{user.username}} you are a lawyer</h1>
+<section *ngIf="user.role === 'LAWYER'">
+    <h1>Hola, {{user.username}}</h1>
+    <div>
+  
+     <p> Preguntas respondidas: 4</p>
+      <p>Puntuación: 4.3/5</p>
+  
+    </div>
+    <div>
+      <button> Tus preguntas</button>
+      <button> Explorar preguntas</button>
+    </div>
+  
+  
+  </section>
+  
+  
 
 <!-- usa ngIF para separar -->

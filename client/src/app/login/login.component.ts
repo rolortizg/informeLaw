@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
 
   
   // username: string = ''
+  isLogged = false
   email: string = ''
   password: string = ''
   auth: any = {
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
       this.user = user
       console.log(this.user)
       localStorage.setItem('user', JSON.stringify(this.user))
+      this.isLogged = true
     })
     
 

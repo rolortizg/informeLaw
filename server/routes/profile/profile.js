@@ -8,7 +8,24 @@ const passport = require('passport');
 // const multer = require('multer');
 // const upload = multer({dest: './public/assets'});
 
-router.get('/profile', (req, res) => {
+function isAuthenticated(req,res,next){
+    if(req.isAuthenticated()){
+        console.log(req.user)
+        return next()
+    }else{
+        res.json({message:"no tienes permiso"});
+    }
+}
+
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        res.redirect('/private')
+    }else{
+        next();
+    }
+}
+
+router.get('/profile',isAuthenticated, (req, res) => {
   console.log(req.user)
   User.findById(req.user._id)
       .then(user => {

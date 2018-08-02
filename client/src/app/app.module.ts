@@ -22,6 +22,8 @@ import {AuthService} from './services/auth.service';
 import { PrivateComponent } from './private/private.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { ExploreComponent } from './explore/explore.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { HomeComponent } from './home/home.component';
     SignupFormComponent,
     PrivateComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    ExploreComponent,
+    QuestionsComponent
   ],
   imports: [
     BrowserModule,

@@ -10,21 +10,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
         <li class="explr nav-item active">
-            <a class="nav-link" href="#">Explora por abogado <span class="sr-only">(current)</span></a>
+            <a class="nav-link" [routerLink]="['explore']">Explora por abogado <span class="sr-only">(current)</span></a>
         </li>
         <li class="explr nav-item active">
-            <a class="nav-link" href="#">¿Eres abogado? <span class="sr-only">(current)</span></a>
+            <a class="nav-link" [routerLink]="['signup']">¿Eres abogado? <span class="sr-only">(current)</span></a>
         </li>
-        <li class="explr nav-item active">
+        <li class="mrleft explr nav-item active">
             <a (click)="logout()" class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
         </li>
         
         
         
      
-      <li class="dwn nav-item dropdown">
+      <li class="mrsleft dwn nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
-          Dropdown
+          Tu cuenta
         </a>
         <div class="dropdown-menu" href="#" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#" [routerLink]="['profile']">Profile</a>

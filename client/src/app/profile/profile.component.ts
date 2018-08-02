@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class ProfileComponent implements OnInit {
     user: any;
+    isLogged:true;
     id:any;
     auth: any = {
       username: '',

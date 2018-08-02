@@ -4,6 +4,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import {LoginComponent} from './login/login.component'
 import { HomeComponent } from './home/home.component';
 import {ProfileComponent} from './profile/profile.component'
+import { ExploreComponent } from './explore/explore.component';
 
 export const routes: Routes = [
     // { path: 'private', component: PrivateComponent},
@@ -12,6 +13,7 @@ export const routes: Routes = [
     { path: 'home',  component: HomeComponent},
     { path:'profile', component: ProfileComponent },
     { path: 'logout', component:LoginComponent},
+    { path: 'explore', component:ExploreComponent},
     
     // { 
     //   path:'products', 

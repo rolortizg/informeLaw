@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const User = require('../models/User');
+const Question = require('../../models/Question');
 const passport = require('passport');
 //const sendWelcomeMail = require('../helpers/mailer').sendWelcomeMail;
 //const sendTemplate = require('../helpers/mailer').sendTemplate;
@@ -10,19 +10,11 @@ const passport = require('passport');
 
 
 
-router.post('/signup', (req,res,next) => {
-    User.register(req.body, req.body.password)
-    .then(user => res.json(user))
+router.post('/question', (req,res,next) => {
+    Question.create(req.body)
+    .then(question => res.json(question))
     .catch(e=>res.json(e))
 });
 
-router.post('/login', passport.authenticate('local'), (req,res,next) => {
-    return res.json(req.user);
-})
-
-router.post('/logout', (req,res,next)=>{
-    req.logout();
-    res.send('cerrado ??? ');
-});
 
 module.exports = router;
