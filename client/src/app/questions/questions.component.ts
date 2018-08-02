@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 import { QuestionsService } from '../services/questions.service';
+import { AuthService } from '../services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,19 +11,22 @@ import { QuestionsService } from '../services/questions.service';
   styleUrls: ['./questions.component.css']
 })
 export class QuestionsComponent implements OnInit {
+  user: any;
   isLogged = false
-  email: string = ''
-  password: string = ''
+  username: string = ''
+  title: string = ''
+  content:string = ''
   q: any = {
     username: '',
     title: '',
-    content: '',
+    content: ''
   } //object used for all authentication
-  user = ''
 
   constructor(
     private qService: QuestionsService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
+    private activeRoute: ActivatedRoute
   ) { }
 
   makeQuestion(){
@@ -32,6 +37,8 @@ export class QuestionsComponent implements OnInit {
     })
   }
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'))
+
   }
 
 }

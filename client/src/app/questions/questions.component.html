@@ -1,3 +1,35 @@
-<p>
-  questions works!
-</p>
+<section *ngIf="user.role === 'USER'">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Tu correo electrónico:</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">¿Qué tipo de derecho requires?</label>
+          <select class="form-control" id="exampleFormControlSelect1">
+            <option>No sé</option>
+            <option>Familiar</option>
+            <option>Administrativo</option>
+            <option>Mercantil</option>
+            <option>Laboral</option>
+            <option>Penal</option>
+            <option>Fiscal</option>
+            <option>Constitucional</option>
+            <option>Propiedad Intelectual</option>
+            <option>Registro de Propiedades/Mercantil</option>
+            <option>Urbanismo</option>
+            <option>Europeo</option>
+            <option>Otro</option>
+           
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Tu pregunta detallada:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+       
+      </form>
+</section>
+<section *ngIf="user.role === 'LAWYER'">
+  <h1>Hola pringao</h1>
+</section>

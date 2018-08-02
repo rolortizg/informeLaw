@@ -1,0 +1,66 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+      <form>
+          <div class="form-group">
+            <label for="exampleFormControlInput1">Tu correo electrónico:</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">¿Qué tipo de derecho requires?</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+              <option>No sé</option>
+              <option>Familiar</option>
+              <option>Administrativo</option>
+              <option>Mercantil</option>
+              <option>Laboral</option>
+              <option>Penal</option>
+              <option>Fiscal</option>
+              <option>Constitucional</option>
+              <option>Propiedad Intelectual</option>
+              <option>Registro de Propiedades/Mercantil</option>
+              <option>Urbanismo</option>
+              <option>Europeo</option>
+              <option>Otro</option>
+             
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Tu pregunta detallada:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+         
+        </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+<div class="btnz">
+  <h2>Haz una pregunta</h2> 
+  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">Modal vertically centered</button>
+   <h2>O busca por abogado</h2>     
+  <button type="button" class="btn btn-outline-dark">Familiar</button>
+  <button type="button" class="btn btn-outline-dark">Administrativo</button>
+  <button type="button" class="btn btn-outline-dark">Mercantil</button>
+  <button type="button" class="btn btn-outline-dark">Laboral</button>
+  <button type="button" class="btn btn-outline-dark">Penal</button>
+  <!-- <button type="button" class="btn btn-outline-dark"></button> -->
+  <button type="button" class="btn btn-outline-dark">Fiscal</button>
+  <button type="button" class="btn btn-outline-dark">Constitucional</button>
+  <button type="button" class="btn btn-outline-dark">Propiedad Intelectual</button>
+  <button type="button" class="btn btn-outline-dark">Registro de Propiedades/Mercantil</button>
+  <button type="button" class="btn btn-outline-dark">Urbanismo</button>
+  <button type="button" class="btn btn-outline-dark">Europeo</button>
+  <button type="button" class="btn btn-outline-dark">Otro</button>
+
+
+
+</div>
+
+

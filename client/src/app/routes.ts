@@ -5,6 +5,7 @@ import {LoginComponent} from './login/login.component'
 import { HomeComponent } from './home/home.component';
 import {ProfileComponent} from './profile/profile.component'
 import { ExploreComponent } from './explore/explore.component';
+import { QuestionsComponent } from './questions/questions.component';
 
 export const routes: Routes = [
     // { path: 'private', component: PrivateComponent},
@@ -14,6 +15,8 @@ export const routes: Routes = [
     { path:'profile', component: ProfileComponent },
     { path: 'logout', component:LoginComponent},
     { path: 'explore', component:ExploreComponent},
+    { path: 'question', component:QuestionsComponent},
+
     
     // { 
     //   path:'products', 

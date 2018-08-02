@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { RouterModule } from "@angular/router";
 import {HttpModule} from '@angular/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 // import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -13,6 +14,7 @@ import {HttpModule} from '@angular/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupFormComponent } from './signup-form/signup-form.component'
+import { NgbdModalOptions } from './modal-options';
 
 //routes
 import {routes} from './routes'
@@ -24,6 +26,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { QuestionsService } from './services/questions.service';
+
 
 
 @NgModule({
@@ -35,16 +39,19 @@ import { QuestionsComponent } from './questions/questions.component';
     ProfileComponent,
     HomeComponent,
     ExploreComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    NgbdModalOptions
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
     HttpModule,
+    NgbModule.forRoot()
     // AppBootstrapModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,QuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
