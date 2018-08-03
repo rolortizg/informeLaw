@@ -34,6 +34,7 @@ import { CategoryComponent } from './category/category.component';
 import { EditComponent } from './edit/edit.component';
 import { FilterPipe } from './filter.pipe';
 import { LawyerComponent } from './lawyer/lawyer.component';
+import { BrowseComponent } from './browse/browse.component';
 
 
 
@@ -55,7 +56,8 @@ import { LawyerComponent } from './lawyer/lawyer.component';
     CategoryComponent,
     EditComponent,
     FilterPipe,
-    LawyerComponent
+    LawyerComponent,
+    BrowseComponent
     
   ],
   imports: [

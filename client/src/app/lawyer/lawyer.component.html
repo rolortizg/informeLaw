@@ -2,6 +2,10 @@
 
 <h1>{{form | json}}</h1>
 <section *ngIf="user.role === 'USER'">
+  <h1>Lo sentimos, solo los abogados pueden subir perfiles</h1>
+  <div *ngFor="let lawyer of lawyers">
+    {{lawyer.name}}
+  </div>
     
     
     
