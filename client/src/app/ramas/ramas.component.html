@@ -2,8 +2,11 @@
 
 <h5>Eres un {{user.role}}</h5>
 
+<input [(ngModel)]="search" placeholder="Busca tu pregunta" type="text">
+    <!-- <h2 *ngFor="let q of questions | filter:'title':search">{{q.title}}</h2> -->
+
   <section *ngIf="user.role === 'USER'">    
-    <div *ngFor="let q of questions">
+    <div *ngFor="let q of questions | filter:'title':search">
         <h1>{{q.title}}</h1>
         <p>{{q.category}}</p>
         <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
@@ -11,7 +14,7 @@
   </section>
 
   <section *ngIf="user.role === 'LAWYER'">    
-      <div *ngFor="let q of questions">
+      <div *ngFor="let q of questions | filter:'title':search">
           <h1>{{q.title}}</h1>
           <p>{{q.category}}</p>
          <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>

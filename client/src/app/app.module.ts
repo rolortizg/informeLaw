@@ -31,6 +31,7 @@ import { RamasComponent } from './ramas/ramas.component';
 import { DetailComponent } from './detail/detail.component';
 import { CategoryComponent } from './category/category.component';
 import { EditComponent } from './edit/edit.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -48,7 +49,8 @@ import { EditComponent } from './edit/edit.component';
     RamasComponent,
     DetailComponent,
     CategoryComponent,
-    EditComponent
+    EditComponent,
+    FilterPipe
     
   ],
   imports: [
