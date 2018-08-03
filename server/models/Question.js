@@ -7,6 +7,12 @@ const questionSchema = new require('mongoose').Schema({
     title: String,
     content: String,
     category:String,
+    user:[
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ]
     
 },{
     timestamps:{

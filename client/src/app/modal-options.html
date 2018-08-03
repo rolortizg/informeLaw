@@ -8,35 +8,38 @@
   <div class="modal-body">
       <form>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Tu usuario</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" value="{{user.username}}">
+            <label for="exampleFormControlInput1">Tu usuario:</label>
+            <input type="text" class="form-control" value="{{user.username}}"  id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
           </div>
           <div class="form-group">
+              <label for="exampleFormControlInput1">Título de la pregunta:</label>
+              <input type="text" class="form-control" name="title" [(ngModel)]="question.title" id="exampleFormControlInput1" placeholder="Pregunta sobre una multa">
+            </div>
+          <div class="form-group">
             <label for="exampleFormControlSelect1">¿Qué tipo de derecho requires?</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>No sé</option>
-              <option>Familiar</option>
-              <option>Administrativo</option>
-              <option>Mercantil</option>
-              <option>Laboral</option>
-              <option>Penal</option>
-              <option>Fiscal</option>
-              <option>Constitucional</option>
-              <option>Propiedad Intelectual</option>
-              <option>Registro de Propiedades/Mercantil</option>
-              <option>Urbanismo</option>
-              <option>Europeo</option>
-              <option>Otro</option>
+            <select class="form-control" name="content" [(ngModel)]="question.category" id="exampleFormControlSelect1">
+              <option value="nose">No sé</option>
+              <option value="familiar">Familiar</option>
+              <option value="admin">Administrativo</option>
+              <option value="mercantil">Mercantil</option>
+              <option value="laboral">Laboral</option>
+              <option value="penal">Penal</option>
+              <option value="fiscal">Fiscal</option>
+              <option value="consti">Constitucional</option>
+              <option value="ip">Propiedad Intelectual</option>
+              <option value="registro">Registro de Propiedades/Mercantil</option>
+              <option value="urban">Urbanismo</option>
+              <option value="europeo">Europeo</option>
+              <option value="otro">Otro</option>
              
             </select>
           </div>
           <div class="form-group">
             <label for="exampleFormControlTextarea1">Tu pregunta detallada:</label>
-            <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea [(ngModel)]="question.content" class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
           </div>
-          <input type="submit" (click)="makeQuestion()">
-         
-        </form>
+          <button (click)="makeQuestion()">in for me</button>
+      </form>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>

@@ -4,21 +4,20 @@ import { QuestionsService } from '../services/questions.service';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
-  selector: 'app-questions',
-  templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css']
+  selector: 'app-ramas',
+  templateUrl: './ramas.component.html',
+  styleUrls: ['./ramas.component.css']
 })
-export class QuestionsComponent implements OnInit {
+export class RamasComponent implements OnInit {
+  id:any;
   user: any;
-  question = {};
+  questions : Array<any>;
   isLogged = false
   username: string = ''
   title: string = ''
   content:string = ''
   category:string = ''
-
 
   constructor(
     private qService: QuestionsService,
@@ -26,18 +25,21 @@ export class QuestionsComponent implements OnInit {
     private authService: AuthService,
     private activeRoute: ActivatedRoute
   ) { }
+  // getAllQuestions(){
+  //   return this.qService.getQuestions()
+  //   .subscribe(questions => this.questions = questions)
+  //   // this.username = '';
+  //   // this.title = '';
+  //   // this.content = '';
+  // }
+  
 
-  makeQuestion(){
-   
-    // this.q.category = this.category;
-    return this.qService.ask(this.question)
-    .subscribe( question => this.question = question)
-    // this.username = '';
-    // this.title = '';
-    // this.content = '';
-  }
+
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user'))
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.qService.getQuestions()
+    .subscribe(questions => this.questions = questions)
+    
 
   }
 

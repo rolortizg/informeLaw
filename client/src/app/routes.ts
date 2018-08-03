@@ -6,16 +6,44 @@ import { HomeComponent } from './home/home.component';
 import {ProfileComponent} from './profile/profile.component'
 import { ExploreComponent } from './explore/explore.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { RamasComponent } from './ramas/ramas.component';
+import { DetailComponent } from './detail/detail.component';
+import { EditComponent } from './edit/edit.component';
+
 
 export const routes: Routes = [
-    // { path: 'private', component: PrivateComponent},
     { path: 'login', component: LoginComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home',  component: HomeComponent},
+    {
+      path: 'signup',
+      component: SignupFormComponent
+    },
     { path:'profile', component: ProfileComponent },
     { path: 'logout', component:LoginComponent},
     { path: 'explore', component:ExploreComponent},
     { path: 'question', component:QuestionsComponent},
+    { path: 'ramas', component:RamasComponent},
+  //   {
+  //     path: 'ramas/:category',
+  //     component: RamasComponent,
+  //     children:[
+  //       // {
+  //       //     path:'edit',
+  //       //     component:EditRamasComponent
+  //       // }
+  //     ]
+  // },
+    {
+      path: 'ramas/:id',
+      component: DetailComponent,
+      children:[
+          {
+              path:'edit',
+              component:EditComponent
+          }
+      ]
+    }
 
     
     // { 
@@ -32,10 +60,7 @@ export const routes: Routes = [
     //   path: 'new',
     //   component: NewProductComponent
     // },
-    {
-      path: 'signup',
-      component: SignupFormComponent
-    },
+    
     // {
     //   path: 'detail/:id',
     //   component: DetailComponent,

@@ -1,0 +1,11 @@
+<div>
+  <!-- {{question.created-at}}  -->
+<h1>  {{question.title}}  </h1> 
+ <br>
+ <h3>  {{question.category}}  </h3>
+  <br>
+  <p>{{question.content}}</p>
+  <a [routerLink]="['edit']">Editar</a>
+</div>
+
+<router-outlet></router-outlet>

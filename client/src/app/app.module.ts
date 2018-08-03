@@ -27,6 +27,10 @@ import { HomeComponent } from './home/home.component';
 import { ExploreComponent } from './explore/explore.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { QuestionsService } from './services/questions.service';
+import { RamasComponent } from './ramas/ramas.component';
+import { DetailComponent } from './detail/detail.component';
+import { CategoryComponent } from './category/category.component';
+import { EditComponent } from './edit/edit.component';
 
 
 
@@ -40,7 +44,11 @@ import { QuestionsService } from './services/questions.service';
     HomeComponent,
     ExploreComponent,
     QuestionsComponent,
-    NgbdModalOptions
+    NgbdModalOptions,
+    RamasComponent,
+    DetailComponent,
+    CategoryComponent,
+    EditComponent
     
   ],
   imports: [

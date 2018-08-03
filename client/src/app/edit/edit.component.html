@@ -1,0 +1,9 @@
+<div>
+    <h2>Edita el produto</h2>
+      <input placeholder="title" [(ngModel)]="question.title" type="text">
+      <br>
+      <input placeholder="content" [(ngModel)]="question.content" type="text">
+      <br>
+      <button (click)="editOne(question)">Guardar los cambios</button>
+</div>
+    <button (click)="removeOne(question._id)"> Borrar</button>
