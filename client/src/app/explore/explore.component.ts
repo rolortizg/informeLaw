@@ -27,6 +27,7 @@ export class ExploreComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'))
+    if(!this.user)this.router.navigate(['login'])
   }
 
 }

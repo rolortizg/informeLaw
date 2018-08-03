@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupFormComponent } from './signup-form/signup-form.component'
 import { NgbdModalOptions } from './modal-options';
+import { NgbdDropdownBasic } from './dropdown-basic'
 
 //routes
 import {routes} from './routes'
@@ -32,6 +33,7 @@ import { DetailComponent } from './detail/detail.component';
 import { CategoryComponent } from './category/category.component';
 import { EditComponent } from './edit/edit.component';
 import { FilterPipe } from './filter.pipe';
+import { LawyerComponent } from './lawyer/lawyer.component';
 
 
 
@@ -46,11 +48,14 @@ import { FilterPipe } from './filter.pipe';
     ExploreComponent,
     QuestionsComponent,
     NgbdModalOptions,
+    NgbdDropdownBasic,
+    
     RamasComponent,
     DetailComponent,
     CategoryComponent,
     EditComponent,
-    FilterPipe
+    FilterPipe,
+    LawyerComponent
     
   ],
   imports: [

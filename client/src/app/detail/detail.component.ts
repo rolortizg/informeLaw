@@ -10,10 +10,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-
+  user:any
   question: any;
   id: any;
   constructor(
+    private router: Router,
     private activeRoute: ActivatedRoute,
     private questionService: QuestionsService
   ) {}
@@ -35,6 +36,8 @@ export class DetailComponent implements OnInit {
         this.question = question
       })
     })
+    this.user = JSON.parse(localStorage.getItem('user'))
+    if(!this.user)this.router.navigate(['login'])
 //query
     this.activeRoute.queryParams
     .subscribe(query=>{

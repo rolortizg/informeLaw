@@ -6,7 +6,9 @@
   <br>
   <p>{{question.content}}</p>
   <p *ngIf="question.answer !== 'no'">{{question.answer}}</p>
-  <a [routerLink]="['edit']">Editar</a>
+  
 </div>
+<a *ngIf="user.role === 'USER'" [routerLink]="['edit']">Editar</a>
+<a *ngIf="user.role === 'LAWYER'" [routerLink]="['edit']">Responder</a>
 
 <router-outlet></router-outlet>

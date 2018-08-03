@@ -25,6 +25,7 @@ export class EditComponent implements OnInit {
       this.question = question
     })
     this.user = JSON.parse(localStorage.getItem('user'))
+    if(!this.user)this.router.navigate(['login'])
   }
 
   editOne(){

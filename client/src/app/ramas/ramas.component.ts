@@ -37,6 +37,8 @@ export class RamasComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
+    if(!this.user)this.router.navigate(['login'])
+
     this.qService.getQuestions()
     .subscribe(questions => this.questions = questions)
     

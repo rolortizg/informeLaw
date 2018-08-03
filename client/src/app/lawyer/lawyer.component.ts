@@ -1,38 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
-import { QuestionsService } from '../services/questions.service';
-import { AuthService } from '../services/auth.service';
+import { LawyerService } from '../services/lawyer.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
-  selector: 'app-questions',
-  templateUrl: './questions.component.html',
-  styleUrls: ['./questions.component.css']
+  selector: 'app-lawyer',
+  templateUrl: './lawyer.component.html',
+  styleUrls: ['./lawyer.component.css']
 })
-export class QuestionsComponent implements OnInit {
+export class LawyerComponent implements OnInit {
+
   user: any;
-  question = {};
+  lawyer = {};
   isLogged = false
-  username: string = ''
-  title: string = ''
+  name: string = ''
+  education: string = ''
   content:string = ''
   category:string = ''
-  answer:string = ''
 
 
   constructor(
-    private qService: QuestionsService,
+    private lawyerService: LawyerService,
     private router: Router,
-    private authService: AuthService,
     private activeRoute: ActivatedRoute
   ) { }
 
-  makeQuestion(){
+  makeLawyer(){
    
     // this.q.category = this.category;
-    return this.qService.ask(this.question)
-    .subscribe( question => this.question = question)
+    return this.lawyerService.postLawyer(this.lawyer)
+    .subscribe( lawyer => this.lawyer = lawyer)
     // this.username = '';
     // this.title = '';
     // this.content = '';
@@ -43,5 +40,4 @@ export class QuestionsComponent implements OnInit {
 
 
   }
-
 }

@@ -9,6 +9,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { RamasComponent } from './ramas/ramas.component';
 import { DetailComponent } from './detail/detail.component';
 import { EditComponent } from './edit/edit.component';
+import { LawyerComponent } from './lawyer/lawyer.component';
 
 
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
     { path: 'explore', component:ExploreComponent},
     { path: 'question', component:QuestionsComponent},
     { path: 'ramas', component:RamasComponent},
+    { path: 'lawyer', component:LawyerComponent},
   //   {
   //     path: 'ramas/:category',
   //     component: RamasComponent,

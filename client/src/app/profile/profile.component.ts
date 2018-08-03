@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
    this.user = JSON.parse(localStorage.getItem('user'))
+   if(!this.user)this.router.navigate(['login'])
     
     // this.authService.getProfile().toPromise()
     // .then(user=>{

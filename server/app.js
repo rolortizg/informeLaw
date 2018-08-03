@@ -83,6 +83,8 @@ const index = require('./routes/index');
 const auth = require('./routes/auth');
 const profile = require('./routes/profile/profile');
 const questions = require('./routes/user/questions')
+const lawyers = require('./routes/lawyer/lawyer')
+app.use('/', lawyers)
 app.use('/', questions)
 app.use('/', profile)
 app.use('/', auth)
