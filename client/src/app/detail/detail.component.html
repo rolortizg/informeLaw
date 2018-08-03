@@ -5,6 +5,7 @@
  <h3>  {{question.category}}  </h3>
   <br>
   <p>{{question.content}}</p>
+  <p *ngIf="question.answer !== 'no'">{{question.answer}}</p>
   <a [routerLink]="['edit']">Editar</a>
 </div>
 

@@ -7,6 +7,10 @@ const questionSchema = new require('mongoose').Schema({
     title: String,
     content: String,
     category:String,
+    answer:{
+        type:String,
+        default:'no'
+    },
     user:[
         {
             type: Schema.Types.ObjectId,

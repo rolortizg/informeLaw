@@ -27,6 +27,7 @@ export class NgbdModalOptions implements OnInit{
   title: string = ''
   content:string = ''
   category:string = ''
+  answer:string = 'nada'
   closeResult: string;
 
   constructor(private modalService: NgbModal,private qService: QuestionsService) {}

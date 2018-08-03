@@ -18,6 +18,7 @@ export class QuestionsComponent implements OnInit {
   title: string = ''
   content:string = ''
   category:string = ''
+  answer:string = ''
 
 
   constructor(

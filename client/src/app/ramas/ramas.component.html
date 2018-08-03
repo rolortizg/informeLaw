@@ -7,13 +7,15 @@
 
   <section *ngIf="user.role === 'USER'">    
     <div *ngFor="let q of questions | filter:'title':search">
+        <!-- <h3 *ngIf="">PREGUNTA RESPONDIDA</h3> -->
         <h1>{{q.title}}</h1>
         <p>{{q.category}}</p>
         <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
     </div>
   </section>
 
-  <section *ngIf="user.role === 'LAWYER'">    
+  <section *ngIf="user.role === 'LAWYER'">
+    
       <div *ngFor="let q of questions | filter:'title':search">
           <h1>{{q.title}}</h1>
           <p>{{q.category}}</p>

@@ -8,7 +8,7 @@ import {QuestionsService} from '../services/questions.service'
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-
+  user:any
   id:any
   question: any
   constructor(
@@ -18,18 +18,20 @@ export class EditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.id = this.activatedRoute.parent.snapshot.params.id
     this.questionService.getOneQuestion(this.id)
     .subscribe(question=>{
       this.question = question
     })
+    this.user = JSON.parse(localStorage.getItem('user'))
   }
 
   editOne(){
     if(!window.confirm('Estas seguro?')) return
     this.questionService.editOneQuestion(this.question)
     .subscribe(()=>{
-     this.router.navigate(['ramas'])
+     this.router.navigate(['/ramas', this.question._id])
     })
     
   }
