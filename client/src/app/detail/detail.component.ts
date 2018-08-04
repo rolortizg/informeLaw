@@ -37,7 +37,7 @@ export class DetailComponent implements OnInit {
       })
     })
     this.user = JSON.parse(localStorage.getItem('user'))
-    if(!this.user)this.router.navigate(['login'])
+    if(!this.user)this.router.navigate(['home'])
 //query
     this.activeRoute.queryParams
     .subscribe(query=>{

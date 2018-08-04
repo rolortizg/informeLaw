@@ -1,7 +1,5 @@
 section {
-  background-image: url("https://wallpapersite.com/images/pages/pic_w/3492.jpg");
-  background-size:cover;
-  height:750px;
+  height:100vh;
   margin-top:-100px;
   padding-top:100px;
 }
@@ -41,11 +39,11 @@ section .btn {
   padding-right:10%;
   border:1px solid black;
   color:white;
-  background-color:darkslategray;
+  background-color:rgba(0, 0, 0, 0.493);
 }
 
 .btn:hover {
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #AB0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(0, 163, 35);
 }
 
 .butons {
@@ -58,4 +56,25 @@ section .btn {
 .align button {
   margin-left:20px;
   margin-right:20px;
+}
+
+.lawyer-box {
+  border:1px solid black;
+  width:30%;
+  text-align: center;
+  margin:20px;
+  padding:20px;
+}
+
+.organize {
+  display:flex;
+  justify-content: space-between;
+    
+  flex-wrap: wrap;
+  margin-top:50px;
+}
+
+.aligner{
+  display:flex;
+  justify-content: center;
 }

@@ -19,6 +19,10 @@
             <label for="exampleFormControlInput1">Tu nombre:</label>
             <input type="text" class="form-control" name="name" [(ngModel)]="lawyer.name" id="exampleFormControlInput1" placeholder="Nombre">
         </div>
+        <div>
+          <label for="inputfile">Tu foto de perfil</label>
+          <input class="inputfile" type="file" [(ngModel)]="lawyer.photoURL" name="photoURL" >
+        </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Tu correo de trabajo:</label>
             <input type="text" class="form-control" name="email" [(ngModel)]="lawyer.email" id="exampleFormControlInput1" placeholder="nombre@bufete.com">

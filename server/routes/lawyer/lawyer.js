@@ -5,12 +5,13 @@ const passport = require('passport');
 //const sendTemplate = require('../helpers/mailer').sendTemplate;
 
 //multer config
-// const multer = require('multer');
-// const upload = multer({dest: './public/assets'});
+const multer = require('multer');
+const upload = multer({dest: './public/assets'});
 
 
 
-router.post('/lawyer', (req,res,next) => {
+router.post('/lawyer',upload.single('image'), (req,res,next) => {
+    if(req.file) req.body.image = 'http://localhost:3000/images/' + req.file.filename
     Lawyer.create(req.body)
     .then(lawyers => res.json(lawyers))
     .catch(e=>res.json(e))

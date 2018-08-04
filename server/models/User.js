@@ -12,7 +12,6 @@ const userSchema = new require('mongoose').Schema({
     },
     role:{
         type: String,
-        enum: ['USER', 'LAWYER', 'ADMIN'],
         default: 'USER'
     },
     questions:[

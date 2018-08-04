@@ -35,6 +35,7 @@ import { EditComponent } from './edit/edit.component';
 import { FilterPipe } from './filter.pipe';
 import { LawyerComponent } from './lawyer/lawyer.component';
 import { BrowseComponent } from './browse/browse.component';
+import { CapitalizrPipe } from './capitalizr.pipe';
 
 
 
@@ -57,7 +58,8 @@ import { BrowseComponent } from './browse/browse.component';
     EditComponent,
     FilterPipe,
     LawyerComponent,
-    BrowseComponent
+    BrowseComponent,
+    CapitalizrPipe
     
   ],
   imports: [

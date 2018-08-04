@@ -1,0 +1,29 @@
+.question-box {
+  border:1px solid black;
+  
+  text-align: center;
+  margin:20px;
+  padding:20px;
+}
+
+.qbox {
+  width:45%;
+}
+
+.organize {
+  display:flex;
+  justify-content: space-between;
+    
+  flex-wrap: wrap;
+  margin-top:50px;
+}
+
+.aligner{
+  display:flex;
+  justify-content: center;
+  margin-top:50px;
+}
+
+i {
+  color:red;
+}

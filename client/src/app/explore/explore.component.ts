@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { NgbdModalOptions } from '../modal-options';
+import { LawyerService } from '../services/lawyer.service';
 
 @Component({
   selector: 'app-explore',
@@ -11,6 +12,7 @@ import { NgbdModalOptions } from '../modal-options';
 })
 export class ExploreComponent implements OnInit {
   user: any;
+  lawyers:Array<any>
   isLogged:true;
   id:any;
   auth: any = {
@@ -22,12 +24,16 @@ export class ExploreComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
+    private lService: LawyerService,
     private activeRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'))
-    if(!this.user)this.router.navigate(['login'])
+    if(!this.user)this.router.navigate(['home'])
+
+    this.lService.getLawyers()
+    .subscribe(lawyers => this.lawyers = lawyers)
   }
 
 }

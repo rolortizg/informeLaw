@@ -1,25 +1,46 @@
-<h2>Hola {{user.username}}</h2>
 
-<h5>Eres un {{user.role}}</h5>
 
-<input [(ngModel)]="search" placeholder="Busca tu pregunta" type="text">
-    <!-- <h2 *ngFor="let q of questions | filter:'title':search">{{q.title}}</h2> -->
+
+<div class="aligner">
+       
+        <input [(ngModel)]="search" style="width:20%;" class="form-control mr-sm-2" type="search" placeholder="Buscar preguntas por titulo" aria-label="Search">
+</div>    <!-- <h2 *ngFor="let q of questions | filter:'title':search">{{q.title}}</h2> -->
 
   <section *ngIf="user.role === 'USER'">    
-    <div *ngFor="let q of questions | filter:'title':search">
-        <!-- <h3 *ngIf="">PREGUNTA RESPONDIDA</h3> -->
-        <h1>{{q.title}}</h1>
-        <p>{{q.category}}</p>
-        <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
-    </div>
+   <div class="organize">
+        <div *ngFor="let q of questions | filter:'title':search" class="qbox">
+                <!-- <h3 *ngIf="">PREGUNTA RESPONDIDA</h3> -->
+            <div *ngIf="q.answer !== 'no'" class="question-box">
+                <h3>{{q.title  | capitalizr}}</h3>
+                <p>{{q.category | capitalizr}}</p>
+                <a [routerLink]="['/ramas', q._id]">Ver respuesta</a>
+                <!-- <i  class="fas fa-check"></i> -->
+            </div>
+            <div *ngIf="q.answer === 'no'" class="question-box">
+                <h3>{{q.title  | capitalizr}}</h3>
+                <p>{{q.category | capitalizr}}</p>
+                <i class="r far fa-times-circle"></i>
+            </div>
+        </div>
+   </div>
   </section>
 
   <section *ngIf="user.role === 'LAWYER'">
     
       <div *ngFor="let q of questions | filter:'title':search">
-          <h1>{{q.title}}</h1>
-          <p>{{q.category}}</p>
-         <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
+          <div *ngIf="q.answer === 'no'" class="question-box">
+            <h1>{{q.title}}</h1>
+            <p>{{q.category}}</p>
+            <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
+        </div>
+        <div *ngIf="q.answer !== 'no'" class="question-box">
+                <h3>{{q.title  | capitalizr}}</h3>
+                <p>{{q.category | capitalizr}}</p>
+                <h5>Respuesta</h5>
+                <p>{{q.answer | capitalizr}}</p>
+                <i  style="color:green;margin-right:20px;" class="fas fa-check"></i>
+                <a [routerLink]="['/ramas', q._id]">Mejorar respuesta</a>
+            </div>
       </div>
     </section>
 

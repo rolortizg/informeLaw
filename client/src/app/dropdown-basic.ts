@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgbdDropdownBasic implements OnInit {
   user:any
+
+  logout(){
+    localStorage.removeItem('user')
+  }
+  
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
     

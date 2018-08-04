@@ -1,29 +1,32 @@
 <h1>{{form | json}}</h1>
 <section>
 
-  <form >
-    <input required name="username" [(ngModel)]="username" placeholder="Tu nombre papud!" type="text">
-    <br>
-    <input required name="email" [(ngModel)]="email" placeholder="Tu correo" type="email">
-    <br>
-    <input #myPassword="ngModel" required name="password" [(ngModel)]="password" placeholder="Tu password" type="password">
-    <!-- <div *ngIf="myPassword.errors && (myPassword.dirty || myPassword.touched)"> -->
-      <!-- <p style="background:red;color:white" [hidden]="!myPassword.errors.required">
-        Password is required
-      </p> -->
-    <!-- </div> -->
-    <br>
- 
+
+
+  <form>
+      <div class="align">
+        <img src="../assets/medium-logo.png">
+        <div class="f1 form-group">
+          <label for="exampleInputEmail1">Tu correo</label>
+          <input type="email" [(ngModel)]="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="nombre@ejemplo.com">
+          <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su información.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Tu usuario</label>
+            <input type="text" [(ngModel)]="username" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Así será referido">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" [(ngModel)]="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          <small id="emailHelp" class="form-text text-muted">Mínimo 5 carácteres</small>
+        </div>
         <label for="exampleFormControlSelect1">Example select</label>
         <select [(ngModel)]="role" class="form-control" id="exampleFormControlSelect1">
           <option value="USER">Client</option>
           <option value="LAWYER">Lawyer</option>
-          
-         
         </select>
-    
-    <!-- <input required name="password2" [(ngModel)]="password2" placeholder="repite" type="password"> -->
-    <button (click)="signup()"></button>
-  </form>
+        <button type="submit" (click)="signup()"class="btn">Registrarte</button>
+      </div>
+    </form>
 
 </section>

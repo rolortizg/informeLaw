@@ -1,9 +1,13 @@
+body {
+  font-size: 1.2em;
+}
+
 section {
   background-image: url("https://wallpapersite.com/images/pages/pic_w/3492.jpg");
   background-size:cover;
   height:750px;
   margin-top:-100px;
-  padding-top:150px;
+  padding-top:130px;
 }
 
 form {
@@ -17,12 +21,15 @@ form {
 
   
 }
-
+img {
+  width:35%;
+  
+}
  
   .form-control:focus{
-    border-color: #AB0000;  
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #AB0000;
-    -webkit-box-shadow: #AB0000;
+    border-color: rgb(0, 163, 35);  
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(0, 163, 35);
+    -webkit-box-shadow: rgb(0, 163, 35);
   } 
   .btn {
     /* box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #AB0000;
@@ -32,7 +39,16 @@ form {
   }
 
   .btn:hover {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px #AB0000;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(0, 163, 35);
   }
 
+  .align {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
   
+  } 
+
+  .f1 {
+    padding-top:50px;
+  }

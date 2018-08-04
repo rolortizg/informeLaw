@@ -20,9 +20,11 @@ body {
   padding-left:20%;
 } */
 
-/* .mrsleft {
-  padding-left:20%;
-} */
+.mrsleft {
+  position:absolute;
+  right:5%;
+  top:10%;
+}
 
 
   

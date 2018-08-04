@@ -1,11 +1,12 @@
 <div class="row">
     <div class="col">
       <div ngbDropdown class="d-inline-block">
-        <button style="border:none;color:white;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Rodrigo</button>
+        <button *ngIf="user" style="border:none;color:white;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{user.username}}</button>
+        <button *ngIf="!user" style="border:none;color:white;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Bienvenido</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button class="dropdown-item">Explore</button>
-          <button class="dropdown-item">Profile</button>
-          <button class="dropdown-item">Logout</button>
+          <button class="dropdown-item" [routerLink]="['explore']">Explore</button>
+          <button class="dropdown-item" [routerLink]="['profile']">Profile</button>
+          <a (click)="logout()" class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
         </div>
       </div>
     </div>
