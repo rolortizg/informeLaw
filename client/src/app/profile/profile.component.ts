@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { NgbdModalOptions } from '../modal-options';
+import { QuestionsService } from '../services/questions.service'
 
 @Component({
   selector: 'app-profile',
@@ -10,6 +11,7 @@ import { NgbdModalOptions } from '../modal-options';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+    questions:Array<any>;
     user: any;
     isLogged:true;
     id:any;
@@ -22,7 +24,8 @@ export class ProfileComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private qService:QuestionsService
     ) { }
 
 
@@ -33,6 +36,12 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
    this.user = JSON.parse(localStorage.getItem('user'))
    if(!this.user)this.router.navigate(['login'])
+
+   this.qService.getQuestions()
+   .subscribe(questions => this.questions = questions)
+   
+
+ 
     
     // this.authService.getProfile().toPromise()
     // .then(user=>{

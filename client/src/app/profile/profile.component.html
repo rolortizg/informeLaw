@@ -1,15 +1,28 @@
 <section *ngIf="user.role === 'USER'">
-  <h1>Hola, {{user.username}}</h1>
-  <div>
+ 
+ <div class="flex">
+    <div>
+        <h1>Hola, {{user.username}}</h1>
 
-   <p> Preguntas: 4</p>
-    <p>Puntuación: 50</p>
 
-  </div>
-  <div>
-    <ngbd-modal-options></ngbd-modal-options>
-    <button><a [routerLink]="['/explore']" style="color:black">Explora por abogados especializados</a></button>
-  </div>
+        <p> Preguntas: 4</p>
+         <p>Puntuación: 50</p>
+     
+       </div>
+       <div class="box">
+         <ngbd-modal-options></ngbd-modal-options>
+         <button><a [routerLink]="['/explore']" style="color:black">Explora por abogados especializados</a></button>
+       </div>
+ </div>
+ <div class="pos">
+   <h2>Tus preguntas</h2>
+        <div *ngFor="let q of questions">
+          <div *ngIf="user.username === q.username">
+            <p>{{q.title}}</p>
+          </div>
+        </div>
+   
+ </div>
 
 
 </section>

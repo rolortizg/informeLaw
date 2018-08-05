@@ -36,6 +36,8 @@ import { FilterPipe } from './filter.pipe';
 import { LawyerComponent } from './lawyer/lawyer.component';
 import { BrowseComponent } from './browse/browse.component';
 import { CapitalizrPipe } from './capitalizr.pipe';
+import { BypassSecurityComponent } from './bypass-security/bypass-security.component';
+import { InnerHtmlBindingComponent } from './inner-html-binding/inner-html-binding.component';
 
 
 
@@ -59,7 +61,9 @@ import { CapitalizrPipe } from './capitalizr.pipe';
     FilterPipe,
     LawyerComponent,
     BrowseComponent,
-    CapitalizrPipe
+    CapitalizrPipe,
+    BypassSecurityComponent,
+    InnerHtmlBindingComponent
     
   ],
   imports: [

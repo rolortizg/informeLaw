@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LawyerService } from '../services/lawyer.service';
 import { ActivatedRoute, Router } from '@angular/router';
+// import { DomSanitizer } from '@angular/core'
 
 @Component({
   selector: 'app-browse',
@@ -10,12 +11,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BrowseComponent implements OnInit {
   lawyers:Array<any>;
   user:any;
+  image:any;
   constructor(
     private lawyerService: LawyerService,
     private activeRoute: ActivatedRoute,
     private router: Router,
 
   ) { }
+
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));

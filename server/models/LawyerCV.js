@@ -4,7 +4,9 @@ const Schema = require('mongoose').Schema;
 
 const lawyerSchema = new require('mongoose').Schema({
     name: String,
-    photoURL: String,
+    image: {
+        type: String, default: ''
+    },
     bio:String,
     email:String,
     education:String,
