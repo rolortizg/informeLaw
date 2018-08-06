@@ -41,8 +41,11 @@ export class LawyerComponent implements OnInit, AfterViewInit {
    
     // this.q.category = this.category;
     return this.lawyerService.postLawyer(this.lawyer)
-    .subscribe( lawyer => this.lawyer = lawyer)
-    this.router.navigate(['browse'])
+    .subscribe( lawyer => {
+      this.lawyer = lawyer
+      this.router.navigate(['browse'])
+    })
+   
     // this.username = '';
     // this.title = '';
     // this.content = '';
