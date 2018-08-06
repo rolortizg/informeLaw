@@ -15,8 +15,22 @@ export class LawyerService {
     private http: Http
   ) { }
 
+  RequestOptionsArgs:any = {
+    withCredentials: true
+  }
+
   postLawyer(q): Observable<any>{
-    return this.http.post(this.url ,q)
+
+    let formdata = new FormData();
+
+    for (let key in q){
+
+      formdata.append(key, q[key]);
+
+    }
+
+
+    return this.http.post(this.url ,formdata, this.RequestOptionsArgs)
     .pipe(map((res:Response)=>res.json()))
   }
 

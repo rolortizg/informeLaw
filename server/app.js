@@ -28,11 +28,11 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
-app.use(cors())
-// app.use(require('cors')({
-//   credentials: true,
-//   origin: 'http://localhost:4200'
-// }))
+
+app.use(require('cors')({
+  credentials: true,
+  origin: 'http://localhost:4200'
+}))
 
 app.use(session({
   store: new MongoStore({

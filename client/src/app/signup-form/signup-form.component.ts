@@ -8,18 +8,22 @@ import {Router} from '@angular/router'
   styleUrls: ['./signup-form.component.css']
 })
 export class SignupFormComponent implements OnInit {
+
   
+  user : any = {}
   username: string = ''
   email: string = ''
   password: string = ''
   role:any;
   auth: any = {
+    
     role:'',
     username: '',
     email: '',
-    password: ''
+    password: '',
+    image:''
   } //object used for all authentication
-  user = ''
+ 
 
   constructor(
     private authService: AuthService,
@@ -27,10 +31,17 @@ export class SignupFormComponent implements OnInit {
   ) { }
 
   signup(){
+   
+
+    // this.auth.image = this.image.nativeElement.files[0];
+
+  // this.auth.image = this.image.nativeElement.files[0];
     this.auth.username = this.username;
+
     this.auth.email = this.email;
     this.auth.password = this.password;
     this.auth.role = this.role;
+    
     this.authService.signup(this.auth)
     .subscribe( user => this.user = user)
     console.log(this.user)

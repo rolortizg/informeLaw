@@ -1,14 +1,15 @@
 
 
-
+ <h1 style="text-align:center;margin-top:30px;">Preguntas Frecuentes</h1>
 <div class="aligner">
        
-        <input [(ngModel)]="search" style="width:35%;" class="form-control mr-sm-2" type="search" placeholder="Buscar preguntas por titulo" aria-label="Search">
+        <input [(ngModel)]="search" style="width:35%;" class="form-control mr-sm-2" type="search" placeholder="Buscar preguntas por rama de ley" aria-label="Search">
 </div>    <!-- <h2 *ngFor="let q of questions | filter:'title':search">{{q.title}}</h2> -->
 
-  <section *ngIf="user.role === 'USER'">    
+  <section *ngIf="user.role === 'USER'"> 
+     
    <div class="organize">
-        <div *ngFor="let q of questions | filter:'title':search" class="qbox">
+        <div *ngFor="let q of questions | filter:'category':search" class="qbox">
                 <!-- <h3 *ngIf="">PREGUNTA RESPONDIDA</h3> -->
             <div *ngIf="q.answer !== 'no'" class="question-box">
                 <h3>{{q.title  | capitalizr}}</h3>
@@ -26,14 +27,14 @@
   </section>
 
   <section *ngIf="user.role === 'LAWYER'">
-    
-      <div *ngFor="let q of questions | filter:'title':search">
-          <div *ngIf="q.answer === 'no'" class="question-box">
-            <h1>{{q.title}}</h1>
-            <p>{{q.category}}</p>
-            <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
-        </div>
-        <div *ngIf="q.answer !== 'no'" class="question-box">
+    <div class="organize">
+      <div *ngFor="let q of questions | filter:'category':search" class="qbox">
+            <div *ngIf="q.answer === 'no'" class="question-box">
+                <h1>{{q.title | capitalizr}}</h1>
+                <p>{{q.category | capitalizr}}</p>
+                <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
+            </div>
+            <div *ngIf="q.answer !== 'no'" class="question-box">
                 <h3>{{q.title  | capitalizr}}</h3>
                 <p>{{q.category | capitalizr}}</p>
                 <h5>Respuesta</h5>
@@ -42,6 +43,7 @@
                 <a [routerLink]="['/ramas', q._id]">Mejorar respuesta</a>
             </div>
       </div>
+     </div>
     </section>
 
 

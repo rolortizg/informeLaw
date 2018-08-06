@@ -1,3 +1,6 @@
+body{
+  height:100vh;
+}
 .flex {
   display:flex;
   flex-direction: row;
@@ -10,4 +13,46 @@
 .pos {
   text-align:center;
   margin-top:50px;
+}
+.cnt{
+ width:100vw;
+}
+
+.cntr {
+ 
+  text-align:center;
+ 
+}
+.lft {
+  text-align:center;
+  margin:50px;
+ 
+}
+.rte {
+  margin:50px;
+
+}
+
+.answers {
+  margin-top:30px;
+  display:flex;
+  align-items: center;
+  flex-direction:column-reverse;
+}
+.question-box {
+  border:1px solid black;
+  
+  text-align: center;
+  margin:20px;
+  padding:20px;
+}
+
+.qbox {
+  width:45%;
+}
+.rte a {
+  color:white;
+}
+i{
+  color:green;
 }

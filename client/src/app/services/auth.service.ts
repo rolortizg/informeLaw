@@ -13,7 +13,20 @@ export class AuthService {
     private http: Http
   ) { }
 
-  signup(auth): Observable<string>{
+  RequestOptionsArgs:any = {
+    withCredentials: true
+  }
+
+  signup(auth): Observable<any>{
+  
+    let formdata = new FormData();
+
+    for (let key in auth){
+
+      formdata.append(key, auth[key]);
+
+    }
+
     return this.http.post(this.url + 'signup', auth)
     .pipe(map(res=>res.json()))
   }
@@ -21,6 +34,11 @@ export class AuthService {
   login(auth): Observable<string>{
     return this.http.post(this.url + 'login', auth)
     .pipe(map(res=>res.json()))
+  }
+
+  changePic(obj):Observable<any>{
+    return this.http.put(this.url + 'profile' + obj._id, obj) 
+    .pipe(map((res: Response)=>res.json())) 
   }
 
   getProfile(){

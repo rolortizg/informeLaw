@@ -20,6 +20,10 @@
           <input type="password" [(ngModel)]="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
           <small id="emailHelp" class="form-text text-muted">Mínimo 5 carácteres</small>
         </div>
+        <div>
+            <label for="inputfile">Tu foto de perfil</label>
+            <input class="inputfile" type="file" #image name="image" >
+        </div>
         <label for="exampleFormControlSelect1">Example select</label>
         <select [(ngModel)]="role" class="form-control" id="exampleFormControlSelect1">
           <option value="USER">Client</option>

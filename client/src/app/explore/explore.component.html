@@ -9,8 +9,10 @@
             
             <div *ngFor="let l of lawyers | filter:'category':search" class="lawyer-box">
                <h3> {{l.name}}</h3>
+               
+               <img width="100" src="{{l.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
                <br>
-               <p> {{l.category}}</p>
+               <p *ngIf="l.category"> {{l.category | capitalizr}}</p>
                <br>
                 <p>{{l.education}}</p>
                 <a href="#">Ver ficha</a>

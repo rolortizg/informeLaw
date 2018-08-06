@@ -1,28 +1,44 @@
 <section *ngIf="user.role === 'USER'">
- 
- <div class="flex">
-    <div>
-        <h1>Hola, {{user.username}}</h1>
+ <div class="cnt container">
+    <div class="row justify-content-md-center">
+      <div class="lft col col-lg-2">
+          <div>
 
-
-        <p> Preguntas: 4</p>
-         <p>Puntuación: 50</p>
-     
-       </div>
-       <div class="box">
-         <ngbd-modal-options></ngbd-modal-options>
-         <button><a [routerLink]="['/explore']" style="color:black">Explora por abogados especializados</a></button>
-       </div>
- </div>
- <div class="pos">
-   <h2>Tus preguntas</h2>
-        <div *ngFor="let q of questions">
-          <div *ngIf="user.username === q.username">
-            <p>{{q.title}}</p>
+              <p> Preguntas: 4</p>
+               <p>Puntuación: 4.3/5</p>
+           
           </div>
-        </div>
-   
- </div>
+      </div>
+      <div class="cntr col-md-auto">
+          <h1>Hola, {{user.username}}</h1>
+          <div *ngIf="!user.image">
+              Cambia tu foto de perfil
+              <input type="file" [(ngModel)]="user.image" (click)="changePic()">
+          </div>
+          <img width="100" src="{{user.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
+          <h1 style="margin-top:70px;">Tus preguntas</h1>
+      </div>
+      <div class="rte col col-lg-2">
+          <div>
+              <ngbd-modal-options></ngbd-modal-options>              
+              <button style="margin-top:5%" type="button" class="btn btn-secondary btn-lg"><a [routerLink]="['/explore']"> Busca un abogado para ti</a></button>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="answers">
+    
+           <div *ngFor="let q of questions" class="qbox">
+                  <div *ngIf="user.username === q.username" class="question-box">
+                    <p>{{q.title}}</p>
+                    <i *ngIf="q.answer !== 'no'" class="fas fa-check" ></i>
+                    <p *ngIf="q.answer !== 'no'"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
+                  </div>
+              
+           </div>
+  </div>
+      
 
 
 </section>
@@ -32,17 +48,45 @@
 
 
 <section *ngIf="user.role === 'LAWYER'">
-    <h1>Hola, {{user.username}}</h1>
-    <div>
+    <div class="cnt container">
+        <div class="row justify-content-md-center">
+          <div class="lft col col-lg-2">
+              <div>
   
-     <p> Preguntas respondidas: 4</p>
-      <p>Puntuación: 4.3/5</p>
-  
-    </div>
-    <div>
-      <button> Tus preguntas</button>
-      <button> Explorar preguntas</button>
-    </div>
+                  <p> Preguntas respondidas: 4</p>
+                   <p>Puntuación: 4.3/5</p>
+               
+              </div>
+          </div>
+          <div class="cntr col-md-auto">
+              <h1>Hola, {{user.username}}</h1>
+              <div *ngIf="!user.image">
+                  Cambia tu foto de perfil
+                  <input type="file" [(ngModel)]="user.image" (click)="changePic()">
+              </div>
+              <img width="100" src="{{user.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
+              <h1 style="margin-top:70px;">Tus respuestas</h1>
+          </div>
+          <div class="rte col col-lg-2">
+              <div>
+                  <button type="button" class="btn btn-secondary btn-lg"><a [routerLink]="['/ramas']">Ver todas las preguntas</a></button>
+                  <button style="margin-top:5%" type="button" class="btn btn-secondary btn-lg"><a [routerLink]="['/lawyer']"> + Crear ficha de abogado</a></button>
+              </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="answers">
+        
+               <div *ngFor="let q of questions" class="qbox">
+                 <div *ngIf="q.answer !== 'no'" class="question-box">
+                    <h3>{{q.title  | capitalizr}}</h3>
+                    <p>{{q.category | capitalizr}}</p>
+                    <a [routerLink]="['/ramas', q._id]">Ver respuesta</a>
+                 </div>
+               </div>
+          
+      </div>
   
   
   </section>

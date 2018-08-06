@@ -4,9 +4,9 @@ const passport = require('passport');
 //const sendWelcomeMail = require('../helpers/mailer').sendWelcomeMail;
 //const sendTemplate = require('../helpers/mailer').sendTemplate;
 
-//multer config
-// const multer = require('multer');
-// const upload = multer({dest: './public/assets'});
+// multer config
+const multer = require('multer');
+const upload = multer({dest: './public/assets'});
 
 function isAuthenticated(req,res,next){
     if(req.isAuthenticated()){
@@ -34,6 +34,16 @@ router.get('/profile',isAuthenticated, (req, res) => {
       .catch(e => next(e))
 
 });
+
+router.put('/profile/:id', upload.single('image'),(req, res, next) => {
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        .then(user => {
+            return res.status(202).json(user)
+        }).catch(err => {
+            return res.status(404).json(err);
+        });
+
+})
 
 router.get('/profiles', (req, res) => {
   User.find()

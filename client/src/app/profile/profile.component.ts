@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ViewChild, ElementRef  } from '@angular/core';
 import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -10,7 +10,10 @@ import { QuestionsService } from '../services/questions.service'
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, AfterViewInit {
+
+  @ViewChild("image") image: ElementRef; 
+
     questions:Array<any>;
     user: any;
     isLogged:true;
@@ -28,6 +31,18 @@ export class ProfileComponent implements OnInit {
     private qService:QuestionsService
     ) { }
 
+    ngAfterViewInit(){
+
+    }
+
+    changePic(){
+
+    this.user.image = this.image.nativeElement.files[0]; 
+
+
+      return this.authService.changePic(this.image)
+    .subscribe( image => this.image = image)
+    }
 
  
 

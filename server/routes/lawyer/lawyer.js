@@ -11,7 +11,9 @@ const upload = multer({dest: './public/assets'});
 
 
 router.post('/lawyer',upload.single('image'), (req,res,next) => {
-    if(req.file) req.body.image = 'http://localhost:3000/images/' + req.file.filename
+    console.log(req.file);
+    console.log(req.body)
+    if(req.file) req.body.image = 'http://localhost:3000/assets/' + req.file.filename
     Lawyer.create(req.body)
     .then(lawyers => res.json(lawyers))
     .catch(e=>res.json(e))
