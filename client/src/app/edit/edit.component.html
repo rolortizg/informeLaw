@@ -5,7 +5,7 @@
       <input placeholder="content" [(ngModel)]="question.content" type="text">
       <br>
       <button (click)="editOne(question)">Guardar los cambios</button>
-      <i class="far fa-trash-alt"></i>
+      <i (click)="removeOne(question._id)" class="far fa-trash-alt"></i>
 </div>
 
 <div *ngIf="user.role === 'LAWYER'">

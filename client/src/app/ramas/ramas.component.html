@@ -1,6 +1,7 @@
 
-
- <h1 style="text-align:center;margin-top:30px;">Preguntas Frecuentes</h1>
+<div style="width:30%;margin-left:35%;">
+     <h1>Librería de preguntas</h1>
+</div>
 <div class="aligner">
        
         <input [(ngModel)]="search" style="width:35%;" class="form-control mr-sm-2" type="search" placeholder="Buscar preguntas por rama de ley" aria-label="Search">
@@ -20,7 +21,7 @@
             <div *ngIf="q.answer === 'no'" class="question-box">
                 <h3>{{q.title  | capitalizr}}</h3>
                 <p>{{q.category | capitalizr}}</p>
-                <i class="r far fa-times-circle"></i>
+                <i style="margin-right:20px" class="r far fa-times-circle"></i>
             </div>
         </div>
    </div>
@@ -30,16 +31,17 @@
     <div class="organize">
       <div *ngFor="let q of questions | filter:'category':search" class="qbox">
             <div *ngIf="q.answer === 'no'" class="question-box">
-                <h1>{{q.title | capitalizr}}</h1>
+                <h3>{{q.title | capitalizr}}</h3>
                 <p>{{q.category | capitalizr}}</p>
+                <i style="margin-right:20px" class="r far fa-times-circle"></i>
                 <a [routerLink]="['/ramas', q._id]">Ver pregunta completa</a>
             </div>
             <div *ngIf="q.answer !== 'no'" class="question-box">
                 <h3>{{q.title  | capitalizr}}</h3>
                 <p>{{q.category | capitalizr}}</p>
-                <h5>Respuesta</h5>
-                <p>{{q.answer | capitalizr}}</p>
-                <i  style="color:green;margin-right:20px;" class="fas fa-check"></i>
+                <!-- <h5>Respuesta</h5>
+                <p>{{q.answer | capitalizr}}</p> -->
+                <i  style="margin-right:20px;color:green;" class="fas fa-check"></i>
                 <a [routerLink]="['/ramas', q._id]">Mejorar respuesta</a>
             </div>
       </div>

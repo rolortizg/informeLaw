@@ -37,10 +37,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
 
     changePic(){
 
-    this.user.image = this.image.nativeElement.files[0]; 
+    let image = this.image.nativeElement.files[0]; 
 
 
-      return this.authService.changePic(this.image)
+      return this.authService.changePic(this.user._id , image)
     .subscribe( image => this.image = image)
     }
 

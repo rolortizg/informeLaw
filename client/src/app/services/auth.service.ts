@@ -36,8 +36,12 @@ export class AuthService {
     .pipe(map(res=>res.json()))
   }
 
-  changePic(obj):Observable<any>{
-    return this.http.put(this.url + 'profile' + obj._id, obj) 
+  changePic(id ,img):Observable<any>{
+    
+    let formdata = new FormData();
+    formdata.append("image", img)
+
+    return this.http.put(this.url + 'profile/' + id, formdata) 
     .pipe(map((res: Response)=>res.json())) 
   }
 

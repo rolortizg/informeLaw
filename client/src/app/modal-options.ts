@@ -43,9 +43,9 @@ export class NgbdModalOptions implements OnInit{
     
     return this.qService.ask(this.question)
     .subscribe( question => this.question = question)
-    this.username = '';
-    this.title = '';
-    this.content = '';
+    // this.username = '';
+    // this.title = '';
+    // this.content = '';
   }
 
   ngOnInit() {
