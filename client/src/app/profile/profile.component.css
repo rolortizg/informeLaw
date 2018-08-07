@@ -50,12 +50,14 @@ h1 {
 }
 
 .answers {
+  
   margin-top:30px;
   display:flex;
   align-items: center;
   flex-direction:column-reverse;
 }
 .question-box {
+  transition: box-shadow .2s;
   border:1px solid black;
   border-radius:5px;
   text-align: center;
@@ -65,9 +67,11 @@ h1 {
   -moz-box-shadow: 0 10px 6px -6px #777;
   box-shadow: 0 10px 6px -6px #777;
 }
-
+.question-box:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
 .qbox {
-  width:45%;
+  width:90%;
 }
 .rte a {
   color:#007bff;
@@ -109,10 +113,25 @@ p i {
  
 }
 
+.btons{
+  background-color:none;
+  border:1px solid #007bff;
+  font-size:1em;
+  position:absolute;
+  top:45px;
+  right:6%;
 
-.rte a{
-  color:white;
 }
+
+.btons a {
+  color:#007bff;
+}
+
+.btons:hover {
+  background-color:#007bff;
+ 
+}
+
 
 .bton a {
   color:#007bff;

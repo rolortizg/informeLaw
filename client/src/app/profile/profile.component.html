@@ -34,6 +34,7 @@
                   <div *ngIf="user.username === q.username" class="question-box">
                     <h5>{{q.title | capitalizr}}</h5>
                     <i *ngIf="q.answer !== 'no'" class="fas fa-check" ></i>
+                    <p *ngIf="q.lawyer">Respuesta pendiente de: {{q.lawyer}}</p>
                     <p *ngIf="q.answer !== 'no'"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
                     <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%" class="fas fa-edit"></i></a>
                   </div>
@@ -51,7 +52,7 @@
     <div class="cnt container">
         <div class="row justify-content-md-center">
           <div class="wdn col col-lg-2">
-                <button style="margin-top:5%" type="button" class="lfty btn btn-secondary btn-lg"><a [routerLink]="['/lawyer']"> + Crear ficha de abogado</a></button>
+                <button style="margin-top:5%" type="button" class="btons btn btn-lg"><a [routerLink]="['/lawyer']"> + Crear ficha de abogado</a></button>
           </div>
           <div class="cntr col-md-auto">
               <h1>Hola, {{user.username}}</h1>
@@ -66,42 +67,55 @@
                      <p style="margin-top:10px"><strong>Puntuación:</strong> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                  
                 </div>
-              <h1 style="margin-top:70px;">Tus respuestas</h1>
+              
           </div>
           <div class="rte col col-lg-2">
               <div>
-                  <button type="button" class="btn btn-secondary btn-lg"><a [routerLink]="['/ramas']">Ver todas las preguntas</a></button>
+                  <button type="button" class="bton btn btn-lg"><a [routerLink]="['/ramas']">Ver todas las preguntas</a></button>
               </div>
           </div>
         </div>
       </div>
-      
-      <div class="answers">
+
+      <div class="container">
+            <div class="row">
+              <div style="width:40%" class="col">
+                    <h1 style="margin-top:70px;text-align:center">Tus respuestas</h1>
+                    <div class="answers">
         
-               <div *ngFor="let q of questions" class="qbox">
-                <div *ngIf="q.role === 'USER'">
-                 <div *ngIf="q.answer !== 'no'" class="question-box">
-                    <h5 style="text-decoration: underline">{{q.title  | capitalizr}}</h5>
-                    <p>{{q.category | capitalizr}}</p>
-                    <a [routerLink]="['/ramas', q._id]">Ver respuesta</a>
-                 </div>
-                </div>
-               </div>
-          
-      </div>
-      <h1 style="margin-top:50px;">Preguntadas a ti:</h1>
-        <div *ngFor="let q of questions" class="answers">
-    
-                <div *ngIf="q.lawyer === user.username" class="qbox">
-                    <div class="question-box">
-                        <h5>{{q.title | capitalizr}}</h5>
-                        <i *ngIf="q.answer !== 'no'" class="fas fa-check" ></i>
-                        <p *ngIf="q.answer !== 'no'"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
-                        <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%" class="fas fa-edit"></i></a>
-                    </div>
+                            <div *ngFor="let q of questions" class="qbox">
+                             <div *ngIf="q.role === 'USER'">
+                              <div *ngIf="q.answer !== 'no'" class="question-box">
+                                 <h5 style="text-decoration: underline">{{q.title  | capitalizr}}</h5>
+                                 <p>{{q.category | capitalizr}}</p>
+                                 <a [routerLink]="['/ramas', q._id]">Ver respuesta</a>
+                              </div>
+                             </div>
+                            </div>
+                       
+                   </div>
+              </div>
+              <div style="width:40%" class="col">
+                    <h1 style="margin-top:70px;text-align:center">Preguntadas a ti:</h1>
+                    <div *ngFor="let q of questions" class="answers">
                 
+                            <div *ngIf="q.lawyer === user.username" class="qbox">
+                                <div class="question-box">
+                                    <h5 style="text-decoration: underline">{{q.title | capitalizr}}</h5>
+                                    <p *ngIf="q.answer === 'no'"><a [routerLink]="['/ramas/', q._id, 'edit']">Responder</a></p>
+                                    <i *ngIf="q.answer !== 'no'" class="fas fa-check" ></i>
+                                    <p *ngIf="q.answer !== 'no'"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
+                                    <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%" class="fas fa-edit"></i></a>
+                                </div>
+                            
+                    </div>
+                    </div>
+              </div>
+            </div>
         </div>
-        </div>
+      
+     
+      
   
   
   </section>
