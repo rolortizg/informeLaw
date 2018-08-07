@@ -7,6 +7,15 @@ const questionSchema = new require('mongoose').Schema({
     title: String,
     content: String,
     category:String,
+    lawyer:String,
+    role: {
+        type:String,
+        default:'USER'
+    },
+    count:{
+        type:Number,
+        default:0
+    },
     answer:{
         type:String,
         default:'no'

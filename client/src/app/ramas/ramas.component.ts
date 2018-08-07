@@ -33,7 +33,9 @@ export class RamasComponent implements OnInit {
   //   // this.content = '';
   // }
   
-
+  toDetail(){
+    this.router.navigate(['edit'])
+  }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));

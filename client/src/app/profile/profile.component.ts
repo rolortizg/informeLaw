@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
       email: '',
       password: ''
     }
+    count:0
 
   constructor(
     private router: Router,
@@ -53,7 +54,11 @@ export class ProfileComponent implements OnInit, AfterViewInit {
    if(!this.user)this.router.navigate(['login'])
 
    this.qService.getQuestions()
-   .subscribe(questions => this.questions = questions)
+   .subscribe(questions => {
+     console.log(questions)
+     this.questions = questions
+     this.count = questions.length
+    })
    
 
  

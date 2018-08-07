@@ -4,7 +4,8 @@
         <button *ngIf="user" style="border:none;color:black;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{user.username}}</button>
         <button *ngIf="!user" style="border:none;color:black;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Bienvenido</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <button class="dropdown-item" [routerLink]="['explore']">Explore</button>
+          <button class="dropdown-item" [routerLink]="['browse']">Abogados</button>
+          <button class="dropdown-item" [routerLink]="['ramas']">Preguntas</button>
           <button class="dropdown-item" [routerLink]="['profile']">Profile</button>
           <a (click)="logout()" class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a>
         </div>

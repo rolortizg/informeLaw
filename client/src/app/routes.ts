@@ -11,6 +11,7 @@ import { DetailComponent } from './detail/detail.component';
 import { EditComponent } from './edit/edit.component';
 import { LawyerComponent } from './lawyer/lawyer.component';
 import { BrowseComponent } from './browse/browse.component';
+import { FichaComponent } from './ficha/ficha.component';
 
 
 export const routes: Routes = [
@@ -24,7 +25,8 @@ export const routes: Routes = [
     { path:'profile', component: ProfileComponent },
     { path: 'logout', component:LoginComponent},
     { path: 'explore', component:ExploreComponent},
-    { path: 'question', component:QuestionsComponent},
+    // { path: 'question', component:QuestionsComponent},
+    {path: 'question/:id', component:QuestionsComponent},
     { path: 'ramas', component:RamasComponent},
     { path: 'lawyer', component:LawyerComponent},
     { path: 'browse', component:BrowseComponent},
@@ -47,6 +49,16 @@ export const routes: Routes = [
               component:EditComponent
           }
       ]
+    },
+    {
+      path: 'browse/:id',
+      component:FichaComponent
+      // children:[
+      //     {
+      //         path:'edit',
+      //         component:EditComponent
+      //     }
+      // ]
     }
 
     

@@ -1,17 +1,19 @@
 <div *ngIf="user.role === 'USER'">
-    <h2>Edita tu pregunta</h2>
+   <div *ngIf="user.username === question.username">
+      <h2>Edita tu pregunta</h2>
       <input placeholder="title" [(ngModel)]="question.title" type="text">
       <br>
       <input placeholder="content" [(ngModel)]="question.content" type="text">
       <br>
       <button (click)="editOne(question)">Guardar los cambios</button>
       <i (click)="removeOne(question._id)" class="far fa-trash-alt"></i>
+   </div>
 </div>
 
 <div *ngIf="user.role === 'LAWYER'">
   <h2>Responde a la pregunta</h2>
     <input  placeholder="answer" [(ngModel)]="question.answer" type="text">
     <button (click)="editOne(question)">Guardar los cambios</button>
-
+    
 </div>
     

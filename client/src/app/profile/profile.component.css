@@ -30,6 +30,13 @@ h1 {
   text-align:center;
  
 }
+.cntry {
+  margin-top:50px;
+  margin-right:50px;
+ width:40%;
+  text-align:center;
+ 
+}
 .lft {
   text-align:left;
   margin:50px;
@@ -37,7 +44,7 @@ h1 {
 }
 .rte {
   /* margin:70px; */
-  margin-top:50px;
+  margin-top:47px;
   margin-left:30px;
 
 }
@@ -63,7 +70,7 @@ h1 {
   width:45%;
 }
 .rte a {
-  color:white;
+  color:#007bff;
 }
 i{
   color:green;
@@ -93,4 +100,29 @@ p i {
   /* margin-top:50px;
   margin-right:30px;
   width:300px; */
+}
+
+.bton {
+  background-color:none;
+  border:1px solid #007bff;
+  font-size:1em;
+ 
+}
+
+
+.rte a{
+  color:white;
+}
+
+.bton a {
+  color:#007bff;
+}
+
+.bton:hover {
+  background-color:#007bff;
+ 
+}
+
+.bton a:hover {
+  color:white;
 }

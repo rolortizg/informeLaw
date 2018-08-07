@@ -3,6 +3,7 @@ import {Router} from '@angular/router'
 import { QuestionsService } from '../services/questions.service';
 import { AuthService } from '../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { LawyerService } from '../services/lawyer.service';
 
 
 @Component({
@@ -12,9 +13,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class QuestionsComponent implements OnInit {
   user: any;
+  id:any
   question = {};
+  lawyer: any = {};
   isLogged = false
-  username: string = ''
+  // username: string = ''
   title: string = ''
   content:string = ''
   category:string = ''
@@ -25,7 +28,8 @@ export class QuestionsComponent implements OnInit {
     private qService: QuestionsService,
     private router: Router,
     private authService: AuthService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private lService: LawyerService
   ) { }
 
   makeQuestion(){
@@ -41,6 +45,17 @@ export class QuestionsComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('user'))
     if(!this.user)this.router.navigate(['login'])
 
+    this.activeRoute.params
+    .subscribe(params=>{
+      console.log(params.id)
+      this.id = params.id
+      
+      this.lService.getOneLawyer(this.id)
+      .subscribe(lawyer=>{
+  //      console.log(phone)
+        this.lawyer = lawyer
+      })
+    })
 
   }
 

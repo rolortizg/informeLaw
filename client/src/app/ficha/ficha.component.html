@@ -1,0 +1,48 @@
+<section *ngIf="user.role === 'USER'">
+    <button style="margin-top:5%;margin-left:50px" type="button" class="bton btn btn-lg"><a [routerLink]="['/question', lawyer._id]"> Haz tu pregunta </a></button>
+    <div class="align">
+        <!-- {{question.created-at}}  -->
+          <h1>  {{lawyer.name| capitalizr}}  </h1><span>by {{lawyer.username}}</span> 
+          <img src="{{lawyer.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
+          <br>
+            <br>
+          <div class="ans">
+            <p><strong style="text-decoration: underline">Educación:</strong><br> {{lawyer.bio | capitalizr}}</p>
+            <p><strong style="text-decoration: underline">Especialidad/es:</strong><br> {{lawyer.category | capitalizr}}</p>
+            <p><strong style="text-decoration: underline">Bio:</strong><br> {{lawyer.bio}}</p>
+            <p><strong style="text-decoration: underline">Bufete:</strong><br> {{lawyer.bufete | capitalizr}}</p>
+            <h5>Contact:</h5>
+            <p><strong style="text-decoration: underline">E-mail:</strong><br> {{lawyer.email}}</p>
+            <!-- <p><strong style="text-decoration: underline">Teléfono:</strong> {{lawyer.category}}</p> -->
+            
+          </div>
+          <!-- <a *ngIf="user.username === question.username" [routerLink]="['edit']">Editar</a>
+          <a *ngIf="user.role === 'LAWYER'" [routerLink]="['edit']">Responder</a> -->
+      </div>
+      
+</section>
+<section *ngIf="user.role === 'LAWYER'">
+    <button style="margin-top:5%;margin-left:50px" type="button" class="bton btn btn-lg"><a [routerLink]="['/question']"> Ver preguntas a ti </a></button>
+    <div class="align">
+        <!-- {{question.created-at}}  -->
+          <h1>  {{lawyer.name| capitalizr}}  </h1><span>by {{lawyer.username}}</span> 
+          <img src="{{lawyer.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
+          <br>
+            <br>
+          <div class="ans">
+            <p><strong style="text-decoration: underline">Educación:</strong><br> {{lawyer.bio | capitalizr}}</p>
+            <p><strong style="text-decoration: underline">Especialidad/es:</strong><br> {{lawyer.category | capitalizr}}</p>
+            <p><strong style="text-decoration: underline">Bio:</strong><br> {{lawyer.bio}}</p>
+            <p><strong style="text-decoration: underline">Bufete:</strong><br> {{lawyer.bufete | capitalizr}}</p>
+            <h5>Contact:</h5>
+            <p><strong style="text-decoration: underline">E-mail:</strong><br> {{lawyer.email}}</p>
+            <!-- <p><strong style="text-decoration: underline">Teléfono:</strong> {{lawyer.category}}</p> -->
+            
+          </div>
+          <!-- <a *ngIf="user.username === question.username" [routerLink]="['edit']">Editar</a>
+          <a *ngIf="user.role === 'LAWYER'" [routerLink]="['edit']">Responder</a> -->
+      </div>
+      
+</section>
+
+

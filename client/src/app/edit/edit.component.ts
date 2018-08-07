@@ -11,6 +11,7 @@ export class EditComponent implements OnInit {
   user:any
   id:any
   question: any
+  counter:0
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -32,6 +33,8 @@ export class EditComponent implements OnInit {
     if(!window.confirm('Estas seguro?')) return
     this.questionService.editOneQuestion(this.question)
     .subscribe(()=>{
+      this.counter = this.question
+      console.log(this.counter)
      this.router.navigate(['/ramas', this.question._id])
     })
     

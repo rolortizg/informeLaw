@@ -3,6 +3,7 @@ const Schema = require('mongoose').Schema;
 
 
 const lawyerSchema = new require('mongoose').Schema({
+    username:String,
     name: String,
     image: {
         type: String, default: ''
@@ -10,6 +11,7 @@ const lawyerSchema = new require('mongoose').Schema({
     bio:String,
     email:String,
     education:String,
+    bufete:String,
     category:String,
     questions:[
         {

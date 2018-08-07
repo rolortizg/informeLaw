@@ -1,6 +1,24 @@
-<div *ngFor="let l of lawyers">
-    <img width="100" src="{{l.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
-  <h2>{{l.name}}</h2>
-  <br>
-  <p>{{l.category}}</p>
+<div class="flx">
+  <h1 style="text-align:center;color:black;padding-top:20px;border-bottom:2px dotted black;border-width:60%;">Haz una pregunta a un abogado especializado:</h1>
+</div>
+<div class="aligner">
+     <input [(ngModel)]="search" style="width:20%;" class="form-control mr-sm-2" type="search" placeholder="Buscar por ley" aria-label="Search">
+</div>
+
+<!-- <input [(ngModel)]="search" placeholder="Busca por tipo de ley" type="text"> -->
+<div class="organize">
+        
+        <div *ngFor="let l of lawyers | filter:'category':search | filter:'title':searcher" class="lawyer-box">
+           <h2 style="border-bottom:1px solid black"> {{l.name}}</h2>
+           
+           <img style="border-radius:50%" src="{{l.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
+           <br>
+           <p *ngIf="l.category" style="margin-top:10px;"><strong>Especialidad:</strong> {{l.category | capitalizr}}</p>
+          
+            <!-- <p style="margin-top:-20px;"><strong>Educación:</strong> {{l.education}}</p> -->
+            <p style="margin-top:0px"><strong>Puntuación:</strong> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+
+            <a [routerLink]="['/browse', l._id]">Ver ficha</a>
+          
+        </div>
 </div>

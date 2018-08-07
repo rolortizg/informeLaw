@@ -1,0 +1,47 @@
+.lawyer-box {
+  transition: box-shadow .2s;
+  border:1px solid black;
+  width:30%;
+  text-align: center;
+  margin:20px;
+  padding:10px;
+  border-radius:5px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+}
+
+.lawyer-box:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
+.organize {
+  display:flex;
+  justify-content: space-between;
+    
+  flex-wrap: wrap;
+  margin-top:50px;
+}
+
+.aligner{
+  margin-top:50px;
+  display:flex;
+  justify-content: center;
+}
+i {
+  color:#F9A602;
+}
+
+h1 {
+  width:40%;
+}
+.flx {
+  display:flex;
+  justify-content: center;
+}
+
+img {
+  width:150px;
+  height:170px;
+  border-radius:50%;
+}

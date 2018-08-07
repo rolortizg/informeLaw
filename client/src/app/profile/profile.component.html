@@ -4,7 +4,7 @@
       <div class="lft col col-lg-2">
             <ngbd-modal-options></ngbd-modal-options> 
       </div>
-      <div class="cntr col-md-auto">
+      <div class="cntry col-md-auto">
           <h1>Hola, {{user.username}}</h1>
           <!-- <div *ngIf="!user.image">
               Cambia tu foto de perfil
@@ -14,7 +14,7 @@
           <div style="margin-top:50px;">
 
                 <p><strong>Preguntas:</strong>  4</p>
-                 <p style="margin-top:10px"><strong>Puntuación:</strong> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                 <p style="margin-top:10px"><strong>Puntuación:</strong> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
              
             </div>
           <h1 style="margin-top:50px;">Tus preguntas</h1>
@@ -22,7 +22,7 @@
       <div class="rte col col-lg-2">
           <div>
                            
-              <button style="margin-top:5%" type="button" class="btn btn-secondary btn-lg"><a [routerLink]="['/explore']"> Busca un abogado para ti</a></button>
+              <button style="margin-top:5%" type="button" class="bton btn btn-lg"><a [routerLink]="['/browse']"> Elige abogado para preguntar </a></button>
           </div>
       </div>
     </div>
@@ -35,10 +35,12 @@
                     <h5>{{q.title | capitalizr}}</h5>
                     <i *ngIf="q.answer !== 'no'" class="fas fa-check" ></i>
                     <p *ngIf="q.answer !== 'no'"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
+                    <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%" class="fas fa-edit"></i></a>
                   </div>
               
            </div>
   </div>
+  
       
 
 
@@ -55,13 +57,13 @@
               <h1>Hola, {{user.username}}</h1>
               <div *ngIf="!user.image">
                   Cambia tu foto de perfil
-                  <input type="file" [(ngModel)]="user.image" (click)="changePic()">
+                  <input type="file" #image (click)="changePic()">
               </div>
-              <img width="100" src="{{user.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
+              <img width="100" src="{{'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">
               <div style="margin-top:50px;">
 
-                    <p><strong>Preguntas:</strong>  4</p>
-                     <p style="margin-top:10px"><strong>Puntuación:</strong> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                    <p><strong>Respuestas:</strong>  4</p>
+                     <p style="margin-top:10px"><strong>Puntuación:</strong> <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
                  
                 </div>
               <h1 style="margin-top:70px;">Tus respuestas</h1>
@@ -77,14 +79,29 @@
       <div class="answers">
         
                <div *ngFor="let q of questions" class="qbox">
+                <div *ngIf="q.role === 'USER'">
                  <div *ngIf="q.answer !== 'no'" class="question-box">
-                    <h5>{{q.title  | capitalizr}}</h5>
+                    <h5 style="text-decoration: underline">{{q.title  | capitalizr}}</h5>
                     <p>{{q.category | capitalizr}}</p>
                     <a [routerLink]="['/ramas', q._id]">Ver respuesta</a>
                  </div>
+                </div>
                </div>
           
       </div>
+      <h1 style="margin-top:50px;">Preguntadas a ti:</h1>
+        <div *ngFor="let q of questions" class="answers">
+    
+                <div *ngIf="q.lawyer === user.username" class="qbox">
+                    <div class="question-box">
+                        <h5>{{q.title | capitalizr}}</h5>
+                        <i *ngIf="q.answer !== 'no'" class="fas fa-check" ></i>
+                        <p *ngIf="q.answer !== 'no'"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
+                        <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%" class="fas fa-edit"></i></a>
+                    </div>
+                
+        </div>
+        </div>
   
   
   </section>

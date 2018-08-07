@@ -4,14 +4,25 @@
     <form>
         <div class="form-group">
           <label for="exampleFormControlInput1">Tu usuario:</label>
-          <input type="text" class="form-control" value="{{user.username}}"  id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">
+          <input type="text" class="form-control" [(ngModel)]="question.username" name="username" id="exampleFormControlInput1" placeholder="{{user.username}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Usuario de abogado:</label>
+            <input type="text" class="form-control" name="lawyer" [(ngModel)]="question.lawyer" id="exampleFormControlInput1" placeholder="{{lawyer.username}}">
         </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Título de la pregunta:</label>
-            <input type="text" class="form-control" name="title" [(ngModel)]="question.title" id="exampleFormControlInput1" placeholder="Pregunta sobre una multa">
-          </div>
+            <input type="text" class="form-control" name="title" [(ngModel)]="question.title" id="exampleFormControlInput1" placeholder="Pregunta sobre ...">
+        </div>
         <div class="form-group">
-          <label for="exampleFormControlSelect1">¿Qué tipo de derecho requires?</label>
+            <label for="exampleFormControlSelect1">Pregunta a:</label>
+            <select required class="form-control" aria-label="ngSelected" name="role" [(ngModel)]="question.role" id="exampleFormControlSelect1">
+              <option value="LAWYER">Abogado</option>
+             
+            </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">¿Qué rama de la ley?</label>
           <select class="form-control" name="content" [(ngModel)]="question.category" id="exampleFormControlSelect1">
             <option value="nose">No sé</option>
             <option value="familiar">Familiar</option>
@@ -32,14 +43,12 @@
         <div class="form-group">
           <label for="exampleFormControlTextarea1">Tu pregunta detallada:</label>
           <textarea [(ngModel)]="question.content" class="form-control" name="content" id="exampleFormControlTextarea1" rows="3"></textarea>
-          <!-- <textarea [(ngModel)]="question.answer"  class="form-control" name="answer" id="exampleFormControlTextarea1" rows="3"></textarea> -->
         </div>
-        <button (click)="makeQuestion()">in for me</button>
-       
-      </form>
+        <button style="margin-left:40%;" (click)="makeQuestion()">InforMe</button>
+    </form>
     
     
 </section>
 <section *ngIf="user.role === 'LAWYER'">
-  <h1>Hola pringao</h1>
+  <h1>Preguntas a ti</h1>
 </section>

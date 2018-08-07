@@ -38,6 +38,7 @@ import { BrowseComponent } from './browse/browse.component';
 import { CapitalizrPipe } from './capitalizr.pipe';
 import { BypassSecurityComponent } from './bypass-security/bypass-security.component';
 import { InnerHtmlBindingComponent } from './inner-html-binding/inner-html-binding.component';
+import { FichaComponent } from './ficha/ficha.component';
 
 
 
@@ -63,7 +64,8 @@ import { InnerHtmlBindingComponent } from './inner-html-binding/inner-html-bindi
     BrowseComponent,
     CapitalizrPipe,
     BypassSecurityComponent,
-    InnerHtmlBindingComponent
+    InnerHtmlBindingComponent,
+    FichaComponent
     
   ],
   imports: [

@@ -15,6 +15,7 @@
             <div *ngIf="q.answer !== 'no'" class="question-box">
                 <h3>{{q.title  | capitalizr}}</h3>
                 <p>{{q.category | capitalizr}}</p>
+                <i  style="margin-right:20px;color:green;" class="fas fa-check"></i>
                 <a [routerLink]="['/ramas', q._id]">Ver respuesta</a>
                 <!-- <i  class="fas fa-check"></i> -->
             </div>
@@ -22,6 +23,9 @@
                 <h3>{{q.title  | capitalizr}}</h3>
                 <p>{{q.category | capitalizr}}</p>
                 <i style="margin-right:20px" class="r far fa-times-circle"></i>
+                <a [routerLink]="['/ramas', q._id]">Ver pregunta</a>
+                <br>
+                <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%;margin-top:30px;" class="fas fa-edit"></i></a>
             </div>
         </div>
    </div>
