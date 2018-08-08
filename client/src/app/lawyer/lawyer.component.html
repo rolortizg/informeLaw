@@ -1,6 +1,5 @@
 
 
-<h1>{{form | json}}</h1>
 <section *ngIf="user.role === 'USER'">
   <h1>Lo sentimos, solo los abogados pueden subir perfiles</h1>
   <div *ngFor="let lawyer of lawyers">
@@ -13,10 +12,10 @@
 <section *ngIf="user.role === 'LAWYER'">
     <form>
       <div class="align">
-        <div class="form-group">
+        <!-- <div class="form-group">
               <label for="exampleFormControlInput1">Usuario asociado:</label>
               <input type="text" class="form-control" name="username" [(ngModel)]="lawyer.username" id="exampleFormControlInput1" placeholder="{{user.username}}">
-        </div>
+        </div> -->
         <div class="form-group">
             <label for="exampleFormControlInput1">Tu nombre:</label>
             <input type="text" class="form-control" name="name" [(ngModel)]="lawyer.name" id="exampleFormControlInput1" placeholder="Nombre">

@@ -15,9 +15,10 @@ export class QuestionsComponent implements OnInit {
   user: any;
   id:any
   question = {};
+
   lawyer: any = {};
   isLogged = false
-  // username: string = ''
+  username: string = ''
   title: string = ''
   content:string = ''
   category:string = ''
@@ -36,15 +37,14 @@ export class QuestionsComponent implements OnInit {
    
     // this.q.category = this.category;
     return this.qService.ask(this.question)
-    .subscribe( question => this.question = question)
+    .subscribe( question => {
+      this.question = question
+    })
     // this.username = '';
     // this.title = '';
     // this.content = '';
   }
   ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user'))
-    if(!this.user)this.router.navigate(['login'])
-
     this.activeRoute.params
     .subscribe(params=>{
       console.log(params.id)
@@ -54,8 +54,16 @@ export class QuestionsComponent implements OnInit {
       .subscribe(lawyer=>{
   //      console.log(phone)
         this.lawyer = lawyer
+        
+  
       })
     })
+
+    this.user = JSON.parse(localStorage.getItem('user'))
+    if(!this.user)this.router.navigate(['login'])
+    this.question['username'] = this.user.username  
+    this.question['lawyer'] = this.lawyer.username
+   
 
   }
 

@@ -1,0 +1,47 @@
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 *ngIf="user.role === 'USER'" class="modal-title" id="modal-basic-title">Editar pregunta</h4>
+      <h4 *ngIf="user.role === 'LAWYER'" class="modal-title" id="modal-basic-title">Responder</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="user.role === 'USER'">
+            <div *ngIf="user.username === question.username">
+                <input class="form-control" type="text" placeholder="Titulo" [(ngModel)]="question.title">
+               <!-- <input placeholder="title" [(ngModel)]="question.title" type="text"> -->
+               <br>
+               <input class="form-control" type="text" placeholder="Rama de ley" [(ngModel)]="question.category">
+              <br>
+               <!-- <input class="form-control form-control-lg" [(ngModel)]="question.content" type="text" placeholder="content"> -->
+               <div class="form-group">
+              
+                  <textarea [(ngModel)]="question.content" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+               <!-- <input placeholder="content" [(ngModel)]="question.content" type="text"> -->
+               <br>
+               <button type="button" (click)="editOne(question)" class="btn btn-outline-primary">Guardar los cambios</button>
+               <!-- <button (click)="editOne(question)">Guardar los cambios</button> -->
+               <i style="margin-left:250px;font-size:28px;" (click)="removeOne(question._id)" class="far fa-trash-alt"></i>
+            </div>
+         </div>
+         
+         <div *ngIf="user.role === 'LAWYER'">
+            <div class="form-group">
+              
+                <textarea [(ngModel)]="question.answer" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+           <!-- <input class="form-control form-control-lg" [(ngModel)]="question.answer" type="text" placeholder="answer"> -->
+             <!-- <input    type="text"> -->
+             <button type="button" (click)="editOne(question)" class="btn btn-outline-primary">Guardar los cambios</button>
+         </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Close</button>
+    </div>
+  </ng-template>
+  
+  <button *ngIf="user.role === 'LAWYER'" style="margin-left:42%;margin-top:5%;" class="btn btn-lg btn-outline-primary" (click)="open(content)">Responder</button>
+  <button *ngIf="user.role === 'USER'" style="margin-left:42%;margin-top:5%;" class="btn btn-lg btn-outline-primary" (click)="open(content)">Edita tu pregunta</button>
+ 

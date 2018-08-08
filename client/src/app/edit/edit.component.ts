@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router'
 import {QuestionsService} from '../services/questions.service'
+import { NgbdModalBasic } from '../modal-basic';
 
 @Component({
   selector: 'app-edit',

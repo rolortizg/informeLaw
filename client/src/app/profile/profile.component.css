@@ -51,11 +51,14 @@ h1 {
 
 .answers {
   
-  margin-top:30px;
   display:flex;
   align-items: center;
-  flex-direction:column-reverse;
+  flex-direction:row-reverse;
+  flex-wrap: wrap;
 }
+
+
+
 .question-box {
   transition: box-shadow .2s;
   border:1px solid black;
@@ -72,7 +75,17 @@ h1 {
 }
 .qbox {
   width:90%;
+
 }
+.qbox1 {
+  width:90%;
+
+}
+
+.qsquare {
+  width:45%;
+}
+
 .rte a {
   color:#007bff;
 }

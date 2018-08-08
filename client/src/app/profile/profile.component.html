@@ -30,13 +30,16 @@
   
   <div class="answers">
     
-           <div *ngFor="let q of questions" class="qbox">
+           <div *ngFor="let q of questions" class="qsquare">
                   <div *ngIf="user.username === q.username" class="question-box">
-                    <h5>{{q.title | capitalizr}}</h5>
+                    <h5><a style="color:black;text-decoration:underline;" [routerLink]="['/ramas', q._id]">{{q.title | capitalizr}}</a></h5>
                     <i *ngIf="q.answer !== 'no'" class="fas fa-check" ></i>
-                    <p *ngIf="q.lawyer">Respuesta pendiente de: {{q.lawyer}}</p>
-                    <p *ngIf="q.answer !== 'no'"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
-                    <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%" class="fas fa-edit"></i></a>
+                    <div *ngIf="q.lawyer">
+                        <p *ngIf="q.answer === 'no'">Respuesta pendiente de: {{q.lawyer}}</p>
+                    </div>
+                    <i *ngIf="q.answer === 'no'" style="color:red;margin-left:20px;margin-bottom:-30px;" class="r far fa-times-circle"></i>
+                    <p *ngIf="q.answer !== 'no'" style="margin-bottom:-30px;"><a [routerLink]="['/ramas', q._id]"> Ver respuesta</a></p>
+                    <a *ngIf="user.username === q.username" [routerLink]="['/ramas/', q._id,'edit']"><i style="color:black;margin-left:90%;margin-top:-30px;" class="fas fa-edit"></i></a>
                   </div>
               
            </div>
@@ -83,7 +86,7 @@
                     <h1 style="margin-top:70px;text-align:center">Tus respuestas</h1>
                     <div class="answers">
         
-                            <div *ngFor="let q of questions" class="qbox">
+                            <div *ngFor="let q of questions" class="qbox1">
                              <div *ngIf="q.role === 'USER'">
                               <div *ngIf="q.answer !== 'no'" class="question-box">
                                  <h5 style="text-decoration: underline">{{q.title  | capitalizr}}</h5>

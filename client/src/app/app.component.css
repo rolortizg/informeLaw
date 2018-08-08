@@ -5,15 +5,22 @@ body {
 }
  
 .navbar {
-  background-color:none;
+  background-color:black;
   border-bottom:1px solid black;
   width:100vw;
   height:57px;
   box-shadow: 1px 1px 10px 1px black;
 }
-.navbar img {
+.img {
   border-radius:5%;
 }
+.sleek {
+  width:15%;
+  height:10%;
+  margin-left:60%; 
+  /* looke here if looking for errors */
+}
+
 .lft {
   margin-left:5%;
 }
@@ -31,6 +38,8 @@ body {
 .navbar img:hover {
   cursor:pointer;
 }
+
+
 
 
   

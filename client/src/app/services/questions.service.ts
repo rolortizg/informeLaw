@@ -7,7 +7,8 @@ import {Observable} from 'rxjs'
   providedIn: 'root'
 })
 export class QuestionsService {
-  url = "http://localhost:3000/question/";
+  // url = "https://informe-law.herokuapp.com/preguntas/question/";
+  url = "http://localhost:3000/preguntas/question/";
   id : any;
   user: any;
   constructor(

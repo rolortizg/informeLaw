@@ -4,6 +4,8 @@ import {FormsModule} from '@angular/forms'
 import { RouterModule } from "@angular/router";
 import {HttpModule} from '@angular/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 // import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -15,7 +17,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupFormComponent } from './signup-form/signup-form.component'
 import { NgbdModalOptions } from './modal-options';
-import { NgbdDropdownBasic } from './dropdown-basic'
+import { NgbdDropdownBasic } from './dropdown-basic';
+import { NgbdModalBasic } from './modal-basic'
 
 //routes
 import {routes} from './routes'
@@ -39,6 +42,7 @@ import { CapitalizrPipe } from './capitalizr.pipe';
 import { BypassSecurityComponent } from './bypass-security/bypass-security.component';
 import { InnerHtmlBindingComponent } from './inner-html-binding/inner-html-binding.component';
 import { FichaComponent } from './ficha/ficha.component';
+import { LawyerService } from './services/lawyer.service';
 
 
 
@@ -54,6 +58,7 @@ import { FichaComponent } from './ficha/ficha.component';
     QuestionsComponent,
     NgbdModalOptions,
     NgbdDropdownBasic,
+    NgbdModalBasic,
     
     RamasComponent,
     DetailComponent,
@@ -76,7 +81,7 @@ import { FichaComponent } from './ficha/ficha.component';
     NgbModule.forRoot()
     // AppBootstrapModule
   ],
-  providers: [AuthService,QuestionsService],
+  providers: [AuthService,QuestionsService,LawyerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

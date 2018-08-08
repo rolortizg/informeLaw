@@ -11,9 +11,13 @@ const passport = require('passport');
 
 
 router.post('/question', (req,res,next) => {
+    console.log(req.body)
     Question.create(req.body)
     .then(question => res.json(question))
-    .catch(e=>res.json(e))
+    .catch(e=>{
+        console.log('error', e)
+        res.json(e)
+    })
 });
 
 router.get('/question', (req, res) => {

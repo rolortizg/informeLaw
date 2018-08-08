@@ -1,4 +1,3 @@
-const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = require('mongoose').Schema;
 
 
@@ -26,6 +25,6 @@ const lawyerSchema = new require('mongoose').Schema({
     }
 });
 
-lawyerSchema.plugin(passportLocalMongoose, {usernameField:'email'})
+
 
 module.exports = require('mongoose').model('Lawyer', lawyerSchema);

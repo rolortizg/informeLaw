@@ -7,7 +7,8 @@ import {Observable} from 'rxjs'
   providedIn: 'root'
 })
 export class AuthService {
-  url = "http://localhost:3000/";
+  // url = "https://informe-law.herokuapp.com/auth/";
+  url = "http://localhost:3000/auth/";
   id : any;
   constructor(
     private http: Http

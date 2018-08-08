@@ -8,7 +8,7 @@
 <!-- <input [(ngModel)]="search" placeholder="Busca por tipo de ley" type="text"> -->
 <div class="organize">
         
-        <div *ngFor="let l of lawyers | filter:'category':search | filter:'title':searcher" class="lawyer-box">
+        <div *ngFor="let l of lawyers | filter:'category':search" class="lawyer-box">
            <h2 style="border-bottom:1px solid black"> {{l.name}}</h2>
            
            <img style="border-radius:50%" src="{{l.image || 'http://www.usanetwork.com/sites/usanetwork/files/styles/629x720/public/2018/07/suits_cast_harvey_s8.jpg?itok=dfZIxggZ'}}" alt="">

@@ -17,7 +17,7 @@ const cors         = require('cors');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://localhost/server', {useMongoClient: true})
+  .connect('mongodb://rodrigortizg:gq9154wd@ds233531.mlab.com:33531/ironhacking', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
@@ -84,10 +84,10 @@ const auth = require('./routes/auth');
 const profile = require('./routes/profile/profile');
 const questions = require('./routes/user/questions')
 const lawyers = require('./routes/lawyer/lawyer')
-app.use('/', lawyers)
-app.use('/', questions)
-app.use('/', profile)
-app.use('/', auth)
+app.use('/abogados', lawyers)
+app.use('/preguntas', questions)
+app.use('/perfil', profile)
+app.use('/auth', auth)
 app.use('/', index);
 
 

@@ -14,24 +14,25 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-light ">
-      <img (click)="home()" src="../assets/small-logo.png" width="30" height="30" alt="" class="imagen">
+      <img class="img" (click)="home()" src="../assets/small-logo.png" width="30" height="30" alt="" class="imagen">
 
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li *ngIf="!user" class="explr nav-item active">
-                <a class="nav-link" [routerLink]="['explore']">Explora por abogado <span class="sr-only">(current)</span></a>
+            <!-- <li *ngIf="!user" class="explr nav-item active">
+                <a style="color:white" class="nav-link" [routerLink]="['explore']">Explora por abogado <span class="sr-only">(current)</span></a>
             </li>
             <li *ngIf="!user" class="explr nav-item active">
-                <a class="nav-link" [routerLink]="['lawyer']">¿Eres abogado? <span class="sr-only">(current)</span></a>
-            </li>
-            <li style="margin-left:10px" class="explr nav-item active">
-                <a class="nav-link" [routerLink]="['ramas']">Librería de preguntas <span class="sr-only">(current)</span></a>
+                <a style="color:white" class="nav-link" [routerLink]="['lawyer']">¿Eres abogado? <span class="sr-only">(current)</span></a>
+            </li> -->
+            <li *ngIf="user" style="margin-left:10px;margin-right:-25%;" class="explr nav-item active">
+                <a style="color:white" class="nav-link" [routerLink]="['ramas']">Librería de preguntas <span class="sr-only">(current)</span></a>
             </li>
             <li class="mrleft explr nav-item active">
                 <!-- <a (click)="logout()" class="nav-link" href="#">Logout <span class="sr-only">(current)</span></a> -->
             </li>
             
+            <img class="sleek" src="../assets/sleek.png">
             
             
         

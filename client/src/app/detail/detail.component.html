@@ -6,7 +6,7 @@
       <br>
     <div class="ans">
       <p><strong style="text-decoration: underline">Pregunta:</strong> {{question.content | capitalizr}}</p>
-      <p *ngIf="question.answer !== 'no'"><strong style="text-decoration: underline">Respuesta:</strong> {{question.answer}}</p>
+      <p *ngIf="question.answer !== 'no'"><strong style="text-decoration: underline">Respuesta:</strong> {{question.answer}}<br><strong>- {{question.lawyer}}</strong></p>
     </div>
     <a *ngIf="user.username === question.username" [routerLink]="['edit']">Editar</a>
     <a *ngIf="user.role === 'LAWYER'" [routerLink]="['edit']">Responder</a>

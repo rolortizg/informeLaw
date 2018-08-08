@@ -18,6 +18,7 @@ export class RamasComponent implements OnInit {
   title: string = ''
   content:string = ''
   category:string = ''
+  search:any = ''
 
   constructor(
     private qService: QuestionsService,

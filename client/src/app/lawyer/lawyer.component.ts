@@ -19,6 +19,8 @@ export class LawyerComponent implements OnInit, AfterViewInit {
   education: string = ''
   content:string = ''
   category:string = ''
+  // search:any = ''
+  
   
 
 
@@ -53,6 +55,8 @@ export class LawyerComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'))
     if(!this.user)this.router.navigate(['login'])
+
+    this.lawyer['username'] = this.user.username  
 
 
   }

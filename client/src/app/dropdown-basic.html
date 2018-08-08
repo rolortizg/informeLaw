@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col">
       <div ngbDropdown class="cols d-inline-block">
-        <button *ngIf="user" style="border:none;color:black;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{user.username}}</button>
-        <button *ngIf="!user" style="border:none;color:black;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Bienvenido</button>
+        <button *ngIf="user" style="border:none;color:white;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{user.username}}</button>
+        <button *ngIf="!user" style="border:none;color:white;" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Bienvenido</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
           <button class="dropdown-item" [routerLink]="['browse']">Abogados</button>
           <button class="dropdown-item" [routerLink]="['ramas']">Preguntas</button>

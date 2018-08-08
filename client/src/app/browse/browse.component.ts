@@ -12,6 +12,7 @@ export class BrowseComponent implements OnInit {
   lawyers:Array<any>;
   user:any;
   image:any;
+  search:any = ''
   constructor(
     private lawyerService: LawyerService,
     private activeRoute: ActivatedRoute,

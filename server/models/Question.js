@@ -1,4 +1,3 @@
-const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = require('mongoose').Schema;
 
 
@@ -19,13 +18,7 @@ const questionSchema = new require('mongoose').Schema({
     answer:{
         type:String,
         default:'no'
-    },
-    user:[
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ]
+    }
     
 },{
     timestamps:{
@@ -34,6 +27,5 @@ const questionSchema = new require('mongoose').Schema({
     }
 });
 
-questionSchema.plugin(passportLocalMongoose, {usernameField:'email'})
 
 module.exports = require('mongoose').model('Question', questionSchema);

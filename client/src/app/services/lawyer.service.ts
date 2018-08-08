@@ -8,7 +8,8 @@ import {Observable} from 'rxjs'
 })
 export class LawyerService {
 
-  url = "http://localhost:3000/lawyer/";
+  // url = "https://informe-law.herokuapp.com/abogados/lawyer/";
+  url = "http://localhost:3000/abogados/lawyer/";
   id : any;
   user: any;
   constructor(

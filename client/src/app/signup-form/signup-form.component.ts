@@ -48,6 +48,7 @@ export class SignupFormComponent implements OnInit {
     this.username = '';
     this.email = '';
     this.password = '';
+    this.router.navigate(['login'])
   }
   ngOnInit() {
   }

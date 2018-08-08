@@ -21,7 +21,6 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class NgbdModalOptions implements OnInit{
   user: any;
-  count:number = 0;
   question = {};
   isLogged = false
   username: string = ''
@@ -39,24 +38,24 @@ export class NgbdModalOptions implements OnInit{
     this.modalService.open(content, { centered: true });
   }
 
+  ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'))
+    this.question['username'] = this.user.username  
+    // this.question['username'] = this.user.username   
+ 
+   }
+
   makeQuestion(){
    
     
     return this.qService.ask(this.question)
-    .subscribe( question => {
-      question.count += 1;
-      this.question = question;
-      
-    })
+    .subscribe( question => this.question = question)
+    
 
     // this.username = '';
     // this.title = '';
     // this.content = '';
   }
 
-  ngOnInit() {
-    this.user = JSON.parse(localStorage.getItem('user'))
-     
- 
-   }
+  
 }

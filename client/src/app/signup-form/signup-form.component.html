@@ -1,4 +1,4 @@
-<h1>{{form | json}}</h1>
+
 <section>
 
 
@@ -20,15 +20,17 @@
           <input type="password" [(ngModel)]="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
           <small id="emailHelp" class="form-text text-muted">Mínimo 5 carácteres</small>
         </div>
-        <div>
+        <!-- <div>
             <label for="inputfile">Tu foto de perfil</label>
             <input class="inputfile" type="file" #image name="image" >
+        </div> -->
+        <label for="exampleFormControlSelect1">Que tipo de usuario serás?</label>
+        <div style="width:40%;">
+            <select [(ngModel)]="role" class="form-control" id="exampleFormControlSelect1">
+                <option value="USER">Client</option>
+                <option value="LAWYER">Lawyer</option>
+              </select>
         </div>
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select [(ngModel)]="role" class="form-control" id="exampleFormControlSelect1">
-          <option value="USER">Client</option>
-          <option value="LAWYER">Lawyer</option>
-        </select>
         <button type="submit" (click)="signup()"class="btn">Registrarte</button>
       </div>
     </form>
